@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小米帐号 -注册</title>
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+    }
+
+    .reg {
+      width: 900px;
+      margin: 50px auto;
+      padding-top: 100px;
+      text-align: center;
+    }
+
+    .reg label {
+      display: inline-block;
+      text-align: right;
+      width: 75px;
+    }
+
+    .reg input {
+      box-sizing: border-box;
+      width: 275px;
+      height: 35px;
+      padding: 10px 20px;
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    .reg span {
+      display: inline-block;
+      width: 16%;
+      font-size: 12px;
+    }
+
+    .title h2 {
+      font-weight: normal;
+    }
+
+    /* 按钮 */
+    #btn {
+      display: block;
+      width: 280px;
+      height: 50px;
+      line-height: 50px;
+      background-color: #ff6700;
+      color: #fff;
+      margin: 10px 31%;
+      outline: 0;
+      border: 0;
+      cursor: pointer;
+    }
+
+    /* 底部 */
+    .footer {
+      width: 80rem;
+      margin: 5rem auto;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer ul li {
+      color: #333;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    .footer ul li:not(:last-child) {
+      border-right: 1px solid #757575;
+    }
+
+    .footer ul li:not(:first-child),
+    .footer p,
+    a {
+      color: #757575;
+    }
+
+    .footer ul li:hover {
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reg">
+    <div class="logo">
+      <a href="#">
+        <img src="./img/logo.png">
+      </a>
+    </div>
+    <div class="title">
+      <h2>注册小米账号</h2>
+    </div>
+    <div id="content">
+      <label>用户名:&nbsp;</label>
+      <input type="text" id="uname" placeholder="请输入用户名">
+      <span id="uname_span"></span><br>
+      <label>密码:&nbsp;</label>
+      <input type="password" id="upwd" placeholder="请输入密码">
+      <span id="upwd_span"></span><br>
+      <label> 确认密码:&nbsp;</label>
+      <input type="password" id="upwd_two" placeholder="请确认密码">
+      <span id="upwd_two_span"></span><br>
+      <label>邮箱:&nbsp;</label>
+      <input type="text" id="email" placeholder="请输入邮箱">
+      <span id="email_span"></span><br>
+      <label>手机:&nbsp;</label>
+      <input type="text" id="phone" placeholder="请输入手机号">
+      <span id="phone_span"></span><br>
+      <button id="btn">注册</button>
+    </div>
+  </div>
+  <div class="footer">
+    <div>
+      <ul>
+        <li>简体</li>
+        <li>繁体</li>
+        <li>English</li>
+        <li>常见问题</li>
+      </ul>
+    </div>
+    <p>
+      小米公司版权所有-京ICP备10046444-
+      <a href="#" style="color: #757575;">
+        <span>
+          <img src="https://account.xiaomi.com/static/res/9204d06/account-static/respassport/acc-2014/img/ghs.png">
+        </span>
+        京公网安备11010802020134号
+      </a>
+      -京ICP证110507号
+    </p>
+  </div>
+  <script src="./js/request.js"></script>
+  <script>
+    /* 获取焦点时提示 */
+    uname.onfocus = function () {
+      uname_span.innerHTML = "用户名的长度在6~9位之间";
+    }
+    upwd.onfocus = function () {
+      upwd_span.innerHTML = "密码的长度在6~12位之间";
+    }
+    upwd_two.onfocus = function () {
+      upwd_two_span.innerHTML = "密码的长度在6~12位之间";
+    }
+    email.onfocus = function () {
+      email_span.innerHTML = "请输入合法的邮箱地址";
+    }
+    phone.onfocus = function () {
+      phone_span.innerHTML = "请输入合法的手机号码";
+    }
+    /* 失去焦点时提示 */
+
+    btn.onclick = function () {
+      var formdata = `uname=${uname.value}&upwd=${upwd.value}&email=${email.value }&phone=${phone.value}`;
+      if (!uname.value) {
+        uname_span.innerHTML = "用户名不能为空";
+        return;
+      }
+      if (!upwd.value) {
+        upwd_span.innerHTML = "密码不能为空";
+        return;
+      }
+      if (!upwd_two.value) {
+        upwd_two_span.innerHTML = "确认密码不能为空";
+        return;
+      }
+      if (!email.value) {
+        email_span.innerHTML = "邮箱不能为空";
+        return;
+      }
+      if (!phone.value) {
+        phone_span.innerHTML = "手机号不能为空";
+        return;
+      }
+      ajax("post", `/Mi/reg`, formdata, isReg);
+      function isReg(result) {
+        if (result == 1) {
+          alert("注册成功");
+        } else {
+          alert("注册失败");
+        }
+      }
+      // for (var i = 0; i < inputs.length; i++) {
+      //   if (!inputs[i].value) {
+      //     spans[i].id.innerHTML = "用户名不能为空";
+      //     console.log(spans[i].id.innerHTML);
+      //     return;
+      //   }
+      // }
+      // var xhr = new XMLHttpRequest();
+      // xhr.onreadystatechange = function () {
+      //   if (xhr.readyState == 4 && xhr.status == 200) {
+      //     var r = xhr.responseText;
+      //     if (r == 1) {
+      //       alert("注册成功");
+      //     } else {
+      //       alert("注册失败");
+      //     }
+      //   }
+      // };
+      // xhr.open("post", "/Mi/reg", true);
+      // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      // xhr.send(formdata);
+    }
+  </script>
+</body>
+
+</html>

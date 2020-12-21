@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小米帐号 - 登录</title>
+  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/normalize.css">
+  <style>
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+    }
+
+    body {
+      box-sizing: border-box;
+    }
+
+    .header {
+      width: 100%;
+      height: 100px;
+    }
+
+    .logo {
+      height: 100px;
+      width: 80rem;
+      margin: 0 auto;
+      background: url(https://account.xiaomi.com/static/res/7f6f2f5/account-static/respassport/acc-2014/img/mistore_logo.png) no-repeat;
+    }
+
+    .login {
+      width: 100%;
+      height: 588px;
+      background: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/72644d9b8031286de3cc74e151aefd90.jpg) no-repeat;
+      margin: 0 auto;
+      background-position: -20rem 0;
+    }
+
+    .form {
+      float: right;
+      width: 370px;
+      height: 526px;
+      margin-top: 62px;
+      margin-right: 15%;
+      background: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .title {
+      text-align: center;
+      color: #f56600;
+      font-weight: normal;
+    }
+
+    .form input {
+      width: 270px;
+      height: 20px;
+      text-indent: 5px;
+      outline: none;
+      border: 1px solid #e0e0e0;
+      padding: 13px 16px 13px 14px;
+      margin-bottom: 20px;
+    }
+
+    #btn {
+      display: block;
+      width: 304px;
+      height: 50px;
+      line-height: 50px;
+      background-color: #ff6700;
+      color: #fff;
+      margin: 0 auto;
+      outline: 0;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .form a {
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .form span {
+      color: #999;
+    }
+
+    #tips {
+      display: none;
+      font-size: 14px;
+      width: 304px;
+      text-align: left;
+      color: #ff6700;
+      margin: 0 auto;
+      padding-bottom: 15px;
+    }
+
+    .form span:hover {
+      color: #ff6700;
+    }
+
+    .footer {
+      width: 80rem;
+      margin: 5rem auto;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer ul li {
+      color: #333;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    .footer ul li:not(:last-child) {
+      border-right: 1px solid #757575;
+    }
+
+    .footer ul li:not(:first-child),
+    .footer p,
+    a {
+      color: #757575;
+    }
+
+    .footer ul li:hover {
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo"></div>
+  </div>
+  <div class="login">
+    <div class="form">
+      <h2 class="title">账号登录</h2>
+      <input type="text" placeholder="邮箱/手机号码/小米ID" id="uname"><br>
+      <input type="password" placeholder="密码" id="upwd"><br>
+      <span id="tips"></span>
+      <button id="btn">登录</button>
+      <a href="#">
+        <span>立即注册&nbsp;|</span>
+      </a>
+      <a href="#">
+        <span>忘记密码?</span>
+      </a>
+    </div>
+
+  </div>
+  <div class="footer">
+    <div>
+      <ul>
+        <li>简体</li>
+        <li>繁体</li>
+        <li>English</li>
+        <li>常见问题</li>
+        <li>隐私政策</li>
+      </ul>
+    </div>
+    <p>
+      小米公司版权所有-京ICP备10046444-
+      <a href="#" style="color: #757575;">
+        <span>
+          <img src="https://account.xiaomi.com/static/res/9204d06/account-static/respassport/acc-2014/img/ghs.png">
+        </span>
+        京公网安备11010802020134号
+      </a>
+      -京ICP证110507号
+    </p>
+  </div>
+  <script src="./js/request.js"></script>
+  <script>
+    btn.onclick = function () {
+      if (!uname.value) {
+        tips.style.display = "block";
+        tips.innerText = "用户名不能为空";
+        return;
+      }
+      if (!upwd.value) {
+        tips.style.display = "block";
+        tips.innerText = "密码不能为空";
+        return;
+      }
+      ajax("get", `/Mi/login`, `${uname.value}&${upwd.value}`, issuccess);
+      function issuccess(result) {
+        if (result == 1) {
+          tips.style.display = "block";
+          tips.innerText = "登录成功";
+        } else {
+          tips.style.display = "block";
+          tips.innerText = "用户名或密码错误";
+        }
+      }
+    }
+    // btn.onclick = function () {
+    //   if (!uname.value) {
+    //     tips.style.display = "block";
+    //     tips.innerText = "用户名不能为空";
+
+    //     return;
+    //   }
+    //   if (!upwd.value) {
+    //     tips.style.display = "block";
+    //     tips.innerText = "密码不能为空";
+    //     return;
+    //   }
+    //   var xhr = new XMLHttpRequest();
+    //   xhr.onreadystatechange = function () {
+    //     if (xhr.readyState == 4 && xhr.status == 200) {
+    //       var r = xhr.responseText;
+    //       if (r == 1) {
+    //         tips.style.display = "block";
+    //         tips.innerText = "登录成功";
+    //       } else {
+    //         tips.style.display = "block";
+    //         tips.innerText = "用户名或密码错误";
+    //       }
+    //     }
+    //   };
+    //   xhr.open("get", `/Mi/login/${uname.value}&${upwd.value}`, true);
+    //   xhr.send();
+    // }
+  </script>
+</body>
+
+</html>
