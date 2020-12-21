@@ -69,7 +69,7 @@
           <!-- 搜索框 -->
           <div class="header-search">
             <input type="text" placeholder="请输入商品" class="search">
-            <input type="image" class="search-btn" src="./img/search.png">
+            <i class="search-btn"></i>
           </div>
         </div>
       </div>
@@ -199,15 +199,15 @@
         <div class="row">
           <!-- 倒计时 -->
           <div class="countdown">
-            <span class="round">18:00场</span>
+            <span class="round" id="hour"></span>
             <img src="./img/shandian.png">
             <span class="desc">距离结束还有</span>
             <div class="time">
               <span>00</span>
               <i>:</i>
-              <span>00</span>
+              <span id="min"></span>
               <i>:</i>
-              <span>00</span>
+              <span id="second"></span>
             </div>
           </div>
           <!-- 列表 -->
@@ -265,16 +265,55 @@
                   </div>
                 </a>
               </li>
+              <li>
+                <a href="#">
+                  <div class="content">
+                    <img src="./img/pic5.webp">
+                    <h3>小米笔记本Air 12.5" 2019款 8代M3 4G 128G</h3>
+                    <p class="desc">像杂志一样随身携带</p>
+                    <p>
+                      <span>3299元</span>
+                      <del style="color:#b0b0b0">3599元</del>
+                    </p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="content">
+                    <img src="./img/pic5.webp">
+                    <h3>小米笔记本Air 12.5" 2019款 8代M3 4G 128G</h3>
+                    <p class="desc">像杂志一样随身携带</p>
+                    <p>
+                      <span>3299元</span>
+                      <del style="color:#b0b0b0">3599元</del>
+                    </p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="content">
+                    <img src="./img/pic5.webp">
+                    <h3>小米笔记本Air 12.5" 2019款 8代M3 4G 128G</h3>
+                    <p class="desc">像杂志一样随身携带</p>
+                    <p>
+                      <span>3299元</span>
+                      <del style="color:#b0b0b0">3599元</del>
+                    </p>
+                  </div>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
-        <!-- 上下切换 -->
+        <!-- 左右切换 -->
         <div class="btn">
           <span>
-            <i>&lt;</i>
+            <i id="left">&lt;</i>
           </span>
           <span>
-            <i>&gt;</i>
+            <i id="right">&gt;</i>
           </span>
         </div>
       </div>
@@ -1242,9 +1281,11 @@
     </a>
   </div>
   <script src="./js/request.js"></script>
+  <script src="./js/time.js"></script>
   <script>
-    /* 获取轮播图片 */
     window.onload = function () {
+
+      /* 获取轮播图片 */
       /* 获取ul下所有的li */
       var allImg = list.querySelectorAll("li img");
       /* 用来保存请求的图片 */
@@ -1258,11 +1299,29 @@
         } else {
           console.log("加载失败");
         }
-        
         for (var i = 0; i < allImg.length; i++) {
-          allImg[i].src=pics[i].img
+          allImg[i].src = pics[i].img
         }
       };
+
+
+      /* 倒计时 */
+      hour.innerHTML = countDown().hour + ':00 场';
+      min.innerHTML = countDown().min;
+      setInterval(() => {
+        second.innerHTML = countDown().second;
+        //判断秒是否等于0
+        if (countDown().second == 0) {
+          console.log(countDown());
+          min.innerHTML = countDown().min;
+          // location.reload();
+        }
+        //判断分钟是否等于0
+        if (countDown().min == 0 && countDown().second == 0) {
+          hour.innerHTML = countDown().hour + ':00 场';
+          // location.reload();
+        }
+      }, 100);
 
     }
   </script>

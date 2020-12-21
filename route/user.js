@@ -27,6 +27,18 @@ route.post("/reg", (req, res) => {
       res.send("0");
     }
   })
+});
+//检测用户名重复
+route.get("/getUname/:uname", (req, res) => {
+  var sql = "select * from xm_user where uname=?";
+  pool.query(sql, [req.params.uname], (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send("1");
+    } else {
+      res.send("0");
+    }
+  })
 })
 //导出
 module.exports = route;

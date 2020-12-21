@@ -9,13 +9,12 @@ route.get("/swiper", (req, res) => {
   var sql = "select * from xm_swiper";
   pool.query(sql, (err, result) => {
     if (err) throw err;
-    console.log(result);
     if (result.length > 0) {
       res.send(result);
     } else {
       res.send("0");
     }
   })
-})
+});
 //导出
 module.exports = route;
