@@ -145,10 +145,10 @@
       <input type="password" placeholder="密码" id="upwd"><br>
       <span id="tips"></span>
       <button id="btn">登录</button>
-      <a href="#">
+      <a href="./mi_reg.html">
         <span>立即注册&nbsp;|</span>
       </a>
-      <a href="#">
+      <a href="./mi_forget.html">
         <span>忘记密码?</span>
       </a>
     </div>
@@ -188,11 +188,12 @@
         tips.innerText = "密码不能为空";
         return;
       }
-      ajax("get", `/Mi/login`, `${uname.value}&${upwd.value}`, issuccess);
+      ajax("get", `/Mi/login`, issuccess, `${uname.value}&${upwd.value}`);
       function issuccess(result) {
         if (result == 1) {
           tips.style.display = "block";
           tips.innerText = "登录成功";
+          location.href = `mi_index.html?${uname.value}`;
         } else {
           tips.style.display = "block";
           tips.innerText = "用户名或密码错误";

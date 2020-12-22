@@ -32,9 +32,9 @@
           <li><a href="#">Select Location</a></li>
         </ul>
         <div class="right">
-          <ul class="user">
-            <li><a href="#">登录</a></li>
-            <li><a href="#">注册</a></li>
+          <ul class="user" id="aaa">
+            <li><a href="./mi_login.html">登录</a></li>
+            <li><a href="./mi_reg.html">注册</a></li>
             <li><a href="#">消息通知</a></li>
           </ul>
           <div class="cart">
@@ -55,7 +55,7 @@
           <div class="header-nav">
             <ul class="nav">
               <li><a href="#"><img src="./img/1212.jpg"></a></li>
-              <li><a href="#">小米手机</a></li>
+              <li><a href="#">小米手机 </a></li>
               <li><a href="#">Redmi红米</a></li>
               <li><a href="#">电视</a></li>
               <li><a href="#">笔记本</a></li>
@@ -74,12 +74,67 @@
         </div>
       </div>
     </div>
+    <!-- 导航隐藏的内容 -->
+    <div class="xiaomi">
+      <div class="container">
+        <ul class="phone_list">
+          <li>
+            <a href="#">
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4a76ee684e51f0ee531ef3dc7f0aeaf.png?thumb=1&w=160&h=110&f=webp&q=90">
+              <span class="phone_name">小米10</span>
+              <span class="phone_price">3799元起</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4a76ee684e51f0ee531ef3dc7f0aeaf.png?thumb=1&w=160&h=110&f=webp&q=90">
+              <span class="phone_name">小米10</span>
+              <span class="phone_price">3799元起</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4a76ee684e51f0ee531ef3dc7f0aeaf.png?thumb=1&w=160&h=110&f=webp&q=90">
+              <span class="phone_name">小米10</span>
+              <span class="phone_price">3799元起</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4a76ee684e51f0ee531ef3dc7f0aeaf.png?thumb=1&w=160&h=110&f=webp&q=90">
+              <span class="phone_name">小米10</span>
+              <span class="phone_price">3799元起</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4a76ee684e51f0ee531ef3dc7f0aeaf.png?thumb=1&w=160&h=110&f=webp&q=90">
+              <span class="phone_name">小米10</span>
+              <span class="phone_price">3799元起</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a4a76ee684e51f0ee531ef3dc7f0aeaf.png?thumb=1&w=160&h=110&f=webp&q=90">
+              <span class="phone_name">小米10</span>
+              <span class="phone_price">3799元起</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
   <!-- 分类 -->
   <div class="category">
     <div class="container">
       <!-- 分类上部分 -->
-      <div class="swiper-slide" style="position: relative;">
+      <div class="swiper-slide">
         <!-- 分类详情 -->
         <div class="slide">
           <ul>
@@ -211,34 +266,8 @@
             </div>
           </div>
           <!-- 列表 -->
-          <div class="list">
-            <ul>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic5.webp">
-                    <h3>小米笔记本Air 12.5" 2019款 8代M3 4G 128G</h3>
-                    <p class="desc">像杂志一样随身携带</p>
-                    <p>
-                      <span>3299元</span>
-                      <del style="color:#b0b0b0">3599元</del>
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic5.webp">
-                    <h3>小米笔记本Air 12.5" 2019款 8代M3 4G 128G</h3>
-                    <p class="desc">像杂志一样随身携带</p>
-                    <p>
-                      <span>3299元</span>
-                      <del style="color:#b0b0b0">3599元</del>
-                    </p>
-                  </div>
-                </a>
-              </li>
+          <div class="list" id="slide_list">
+            <ul style="left: 0;">
               <li>
                 <a href="#">
                   <div class="content">
@@ -309,12 +338,10 @@
         </div>
         <!-- 左右切换 -->
         <div class="btn">
-          <span>
-            <i id="left">&lt;</i>
-          </span>
-          <span>
-            <i id="right">&gt;</i>
-          </span>
+          <button id="left">&lt;</button>
+          <!-- </span> -->
+          <button id="right">&gt;</button>
+          <!-- </span> -->
         </div>
       </div>
       <!-- 手机 -->
@@ -1280,31 +1307,25 @@
       <span>回顶部</span>
     </a>
   </div>
+  <!-- 引入工具类 -->
   <script src="./js/request.js"></script>
-  <script src="./js/time.js"></script>
+  <script src="./js/utils.js"></script>
   <script>
     window.onload = function () {
+      /* 导航栏隐藏的内容 */
+      //获取导航栏每个li
+      var navbarli = document.querySelectorAll(".header-nav .nav li")[1];
+      var xiaomi = document.querySelector(".xiaomi");
+      navbarli.onmouseover = function () {
+        xiaomi.style.display = "block";
+        xiaomi.style.transition = "all 10s inherit";
 
-      /* 获取轮播图片 */
-      /* 获取ul下所有的li */
-      var allImg = list.querySelectorAll("li img");
-      /* 用来保存请求的图片 */
-      var pics;
-      /* 调用ajax函数 */
-      ajax("get", `/Mi/swiper`, issuccess);
-      /* 回调函数 */
-      function issuccess(result) {
-        if (result.length > 0) {
-          pics = JSON.parse(result);
-        } else {
-          console.log("加载失败");
-        }
-        for (var i = 0; i < allImg.length; i++) {
-          allImg[i].src = pics[i].img
-        }
-      };
-
-
+      }
+      xiaomi.onmouseout = function () {
+        xiaomi.style.display="none";
+      }
+      // var search = window.location.search;
+      // console.log(search);
       /* 倒计时 */
       hour.innerHTML = countDown().hour + ':00 场';
       min.innerHTML = countDown().min;
@@ -1312,7 +1333,6 @@
         second.innerHTML = countDown().second;
         //判断秒是否等于0
         if (countDown().second == 0) {
-          console.log(countDown());
           min.innerHTML = countDown().min;
           // location.reload();
         }
@@ -1323,19 +1343,51 @@
         }
       }, 100);
 
-    }
+
+      /* 闪购滑动效果 */
+      /* 获取ul */
+      var slide_listul = document.querySelector("#slide_list ul");
+      /*  获取li的个数*/
+      var liLength = document.querySelectorAll("#slide_list ul li").length;
+      /* 获取ul的宽度 */
+      var ulwidth = document.querySelector("#slide_list ul").offsetWidth + 21;
+      /* 获取左右按钮 */
+      var right = document.getElementById("right");
+      var left = document.getElementById("left");
+      /* 判断ul的left值是否等于0 */
+      if (parseInt(slide_listul.style.left) == 0) {
+        /* 给左按钮添加disabled属性 */
+        left.setAttribute('disabled', true);
+      }
+      /* 如果li个数只有4个,添加disabled */
+      if (liLength == 4) {
+        /* 给右按钮添加disabled属性 */
+        right.setAttribute('disabled', true);
+      }
+      /* 点击事件 */
+      right.onclick = function () {
+        rClick(liLength, slide_listul, ulwidth, right, left);
+      }
+      left.onclick = function () {
+        lClick(slide_listul, ulwidth, right, left);
+      }
+    };
   </script>
   <script>
-    /* 轮播图 */
+    /* 实现轮播功能 */
     //1.找到对应的DOM节点
     var box = document.querySelector(".swiper"); //找到容器盒子
-    var list = document.querySelector(".list");
-    var listli = document.querySelectorAll(".list li");
+    var list = document.querySelector("#list");
+    var listli = document.querySelectorAll("#list li");
+    //获取list li下的所有轮播图片
+    var allImg = document.querySelectorAll("#list li img");
     var len = document.querySelectorAll(".page li").length;
     var ltBtn = document.querySelector(".prev");
     var rtBtn = document.querySelector(".next");
     var page = document.querySelector(".page");
     var pageli = document.querySelectorAll(".page li");
+    /* 用来保存请求的图片 */
+    var pics;
     //2.当前所处的下标
     var curIndex = 0;
     //3.左按钮点击事件
@@ -1376,7 +1428,7 @@
     for (var i = 0; i < pageli.length; i++) {
       pageli[i].setAttribute("data-index", i); //ol下的li全部添加了data-index属性,意思就是给每个li加上了属于自己的序号
       pageli[i].onclick = function () {
-        console.log(this.getAttribute("data-index"));
+        // console.log(this.getAttribute("data-index"));
         curIndex = this.getAttribute("data-index");
         for (var i = 0; i < listli.length; i++) {
           listli[i].classList.remove("on");
@@ -1401,6 +1453,22 @@
       timer = setInterval(function () {
         rtBtn.onclick();
       }, 3000);
+    };
+
+
+    /* 获取轮播图片 */
+    /* 调用ajax函数 */
+    ajax("get", `/Mi/swiper`, issuccess);
+    /* 回调函数 */
+    function issuccess(result) {
+      if (result.length > 0) {
+        pics = JSON.parse(result);
+      } else {
+        console.log("加载失败");
+      }
+      for (var i = 0; i < allImg.length; i++) {
+        allImg[i].src = pics[i].img
+      }
     };
   </script>
 </body>
