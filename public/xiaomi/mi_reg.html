@@ -54,6 +54,14 @@
       font-weight: normal;
     }
 
+    .tips {
+      width: 200px;
+      margin: 0 auto;
+      font-size: 14px;
+      text-align: right;
+      color: #ff6700;
+    }
+
     /* 按钮 */
     #btn {
       display: block;
@@ -124,6 +132,10 @@
       <label>手机:&nbsp;</label>
       <input type="text" id="phone" placeholder="请输入手机号">
       <span id="phone_span"></span><br>
+      <a href="./mi_login.html">
+        <p class="tips">去登陆</p>
+      </a>
+
       <button id="btn">注册</button>
     </div>
   </div>
@@ -190,6 +202,7 @@
         return;
       }
       ajax("post", `/Mi/reg`, formdata, isReg);
+
       function isReg(result) {
         if (result == 1) {
           alert("注册成功");

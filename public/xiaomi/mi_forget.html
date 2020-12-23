@@ -22,6 +22,53 @@
       display: inline-block;
     }
 
+    /* 重置框 */
+    .reset {
+      width: 50rem;
+      height: 35rem;
+      margin: 10rem auto 0 auto;
+      text-align: center;
+    }
+
+    .reset .title h2 {
+      font-size: 30px;
+      font-weight: normal;
+    }
+
+    .input input {
+      width: 310px;
+      height: 40px;
+      line-height: 40px;
+      padding: 10px;
+      outline: none;
+      margin-bottom: 10px;
+    }
+
+    .input p {
+      display: none;
+      width: 310px;
+      margin: 0 auto;
+      text-align: left;
+      color: #f66;
+      font-size: 14px;
+    }
+
+    #btn {
+      width: 310px;
+      height: 42px;
+      line-height: 42px;
+      margin-top: 10px;
+      color: #fff;
+      background-color: #ff6700;
+      border: 0;
+      outline: none;
+      cursor: pointer;
+    }
+
+    #btn:hover {
+      background-color: #ff936a;
+    }
+
     /* 底部 */
     .footer {
       width: 80rem;
@@ -62,9 +109,16 @@
     <div class="title">
       <h2>重置密码</h2>
     </div>
-    <div>
-
+    <div class="tips">
+      <h5>请输入注册的邮箱地址、手机号码或小米帐号：</h5>
     </div>
+    <div class="input">
+      <input type="text" placeholder="邮箱/手机号码/小米帐号">
+      <p>请输入账号</p>
+    </div>
+    <button id="btn">重置</button>
+
+
   </div>
   <div class="footer">
     <div>

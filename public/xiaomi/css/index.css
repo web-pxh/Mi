@@ -109,14 +109,17 @@ a {
 .header .site-header {
   width: 100%;
   height: 100px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: all .5s inherit;
 }
-
 /* 清除浮动 */
 .header .site-header .container {
   clear: both;
   height: 100px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .header-logo img {
@@ -125,16 +128,6 @@ a {
   margin-right: 16px;
 }
 
-.header .site-header .container .right {
-  width: 95%;
-  display: flex;
-  justify-content: space-between
-}
-
-.header-nav .nav {
-  display: flex;
-  align-items: center;
-}
 
 .header-nav li>a {
   color: #333;
@@ -176,7 +169,7 @@ a {
 
 /* 导航隐藏的内容 */
 .xiaomi {
-  display: none;
+  /* display: none; */
   width: 100%;
   background-color: #fff;
   position: absolute;
