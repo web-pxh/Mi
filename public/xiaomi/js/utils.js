@@ -30,7 +30,7 @@ function countDown() {
 }
 /* 记录点击的次数 */
 var count = 0;
-/* 右按钮事件 */
+/* 首页右按钮事件 */
 function rClick(liLength, slide_listul, ulwidth, right, left) {
   count++;
   /* 获取剩下li的个数 */
@@ -47,7 +47,7 @@ function rClick(liLength, slide_listul, ulwidth, right, left) {
     left.removeAttribute('disabled');
   }
 }
-/* 左按钮事件 */
+/* 首页左按钮事件 */
 function lClick(slide_listul, ulwidth, right, left) {
   count--;
   if (count < 0) {
@@ -61,4 +61,18 @@ function lClick(slide_listul, ulwidth, right, left) {
     /* 给左按钮添加disabled属性 */
     left.setAttribute('disabled', true);
   }
+}
+/* 购物车减号点击事件 */
+function jClick(input, totle, price) {
+  if (input.value > 1) {
+    input.value--;
+    totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
+  } else {
+    alert("数量不能少于1");
+  }
+}
+/* 购物车加号点击事件 */
+function aClick(input, totle, price) {
+  input.value++;
+  totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
 }

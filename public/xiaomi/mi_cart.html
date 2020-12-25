@@ -44,8 +44,8 @@
         <table>
           <tr>
             <th>
-              <input type="checkbox">
-              全选
+              <input type="checkbox" id="all_check">
+              <label for="all_check">全选</span>
             </th>
             <th></th>
             <th style="text-align: left;">商品名称</th>
@@ -55,7 +55,8 @@
             <th>操作</th>
           </tr>
           <tr>
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>
               <a href="#">
                 <img
@@ -68,15 +69,77 @@
               </a>
             </td>
             <td>
-              <span id="price">6999元</span>
+              <span class="price">6999元</span>
             </td>
             <td class="btn">
-              <button id="subtract">-</button>
+              <button class="subtract">-</button>
               <input type="text" value="1" readonly>
-              <button id="add">+</button>
+              <button class="add">+</button>
             </td>
             <td>
-              <span id="totle"></span>
+              <span class="totle"></span>
+            </td>
+            <td class="oper">
+              <a href="#">
+                <i>×</i>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="checkbox">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+              <a href="#">
+                <img
+                  src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1533264175.2117303.jpg?thumb=1&w=80&h=80">
+              </a>
+            </td>
+            <td style="text-align: left;">
+              <a href="#">
+                <span class="shop_name">15.6 Pro i7 16G 1050MAX-Q 256G</span>
+              </a>
+            </td>
+            <td>
+              <span class="price">5999元</span>
+            </td>
+            <td class="btn">
+              <button class="subtract">-</button>
+              <input type="text" value="1" readonly>
+              <button class="add">+</button>
+            </td>
+            <td>
+              <span class="totle"></span>
+            </td>
+            <td class="oper">
+              <a href="#">
+                <i>×</i>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="checkbox">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+              <a href="#">
+                <img
+                  src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1533264175.2117303.jpg?thumb=1&w=80&h=80">
+              </a>
+            </td>
+            <td style="text-align: left;">
+              <a href="#">
+                <span class="shop_name">15.6 Pro i7 16G 1050MAX-Q 256G</span>
+              </a>
+            </td>
+            <td>
+              <span class="price">4999元</span>
+            </td>
+            <td class="btn">
+              <button class="subtract">-</button>
+              <input type="text" value="1" readonly>
+              <button class="add">+</button>
+            </td>
+            <td>
+              <span class="totle"></span>
             </td>
             <td class="oper">
               <a href="#">
@@ -210,20 +273,50 @@
   <footer>
     <iframe src="footer.html" class="iframe_footer" scrolling="no" frameborder="0"></iframe>
   </footer>
+  <script src="./js/utils.js"></script>
   <script>
-    var num = document.querySelector(".btn input");
-    totle.innerHTML = parseInt(num.value) * parseInt(price.innerHTML) + '元';
-    subtract.onclick = function () {
-      if (num.value > 1) {
-        num.value--;
-        totle.innerHTML = parseInt(num.value) * parseInt(price.innerHTML) + '元';
-      } else {
-        alert("数量不能少于1");
+    window.onload = function () {
+      /* 获取数量下的input标签 */
+      var input = document.querySelector(".btn input");
+      /* 获取加号按钮*/
+      var add = document.querySelector(".btn .add");
+      /* 获取减号按钮*/
+      var subtract = document.querySelector(".btn .subtract");
+      /* 获取小计*/
+      var totle = document.querySelector(".cart_warp .totle");
+      /* 获取价格*/
+      var price = document.querySelector(".cart_warp .price");
+      /* 给小计一个初始值 */
+      // for (var i = 0; i < totle.length; i++) {
+      totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
+      // };
+      /* 减号点击事件 */
+      subtract.onclick = function () {
+        jClick(input, totle, price);
       }
-    }
-    add.onclick = function () {
-      num.value++;
-      totle.innerHTML = parseInt(num.value) * parseInt(price.innerHTML) + '元';
+      /* 加号点击事件 */
+      add.onclick = function () {
+        aClick(input, totle, price)
+      }
+      // for (var s = 0; s < subtracts.length; s++) {
+      //   subtracts[s].onclick = function () {
+      //     if (inputs[s].value > 1) {
+      //       inputs[s].value--;
+      //       totles[s].innerHTML = parseInt(inputs[s].value) * parseInt(prices[s].innerHTML) + '元';
+      //     } else {
+      //       alert("数量不能少于1");
+      //     }
+      //   }
+      // }
+
+      // for (var a = 0; a < adds.length; a++) {
+
+      //   adds[a].onclick = function () {
+      //     console.log(a);
+      //     // inputs[a].value++;
+      //     // totles[a].innerHTML = parseInt(inputs[a].value) * parseInt(prices[a].innerHTML) + '元';
+      //   }
+      // }
     }
   </script>
 </body>

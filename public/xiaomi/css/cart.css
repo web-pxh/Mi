@@ -127,14 +127,17 @@ li {
   border-top: 1px solid #e0e0e0;
 }
 
-.cart_warp table .shop_name{
+/* 商品名称 */
+.cart_warp table .shop_name {
   color: #424242;
   font-size: 18px;
 }
-.cart_warp table .btn{
+/* 数量 */
+.cart_warp table .btn {
   width: 170px;
   height: 40px;
 }
+
 .cart_warp table .btn input {
   width: 75px;
   height: 38px;
@@ -151,11 +154,13 @@ li {
   background: #fff;
   cursor: pointer;
 }
-#totle{
+/* 小计 */
+.cart_warp table .totle {
   display: inline-block;
   width: 80px;
 }
-.cart_warp table .oper a:hover{
+/* 操作 */
+.cart_warp table .oper a:hover {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -163,14 +168,17 @@ li {
   border-radius: 50%;
   background-color: red;
 }
-.cart_warp table .oper a:hover i{
+
+.cart_warp table .oper a:hover i {
   color: #fff;
 }
-.cart_warp table .oper i{
+
+.cart_warp table .oper i {
   font-style: normal;
   font-size: 20px;
   color: #757575;
 }
+
 /* 推荐 */
 .recommend {
   width: 100%;
