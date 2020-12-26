@@ -131,6 +131,9 @@ li {
 .cart_warp table .shop_name {
   color: #424242;
   font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 /* 数量 */
 .cart_warp table .btn {

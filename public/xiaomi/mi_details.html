@@ -16,7 +16,7 @@
     <iframe src="header.html" class="iframe_header" scrolling="no"></iframe>
   </header>
   <!-- 导航栏 -->
-  <div class="nav-bar">
+  <div class="nav-bar" id="nav-bar">
     <div class="container all">
       <!-- 左侧 -->
       <div class="left">
@@ -303,6 +303,28 @@
     <iframe src="footer.html" class="iframe_footer" scrolling="no" frameborder="0"></iframe>
   </footer>
   <script>
+    /* 导航栏固定 */
+    //获取导航栏元素
+    var nav = document.getElementById("nav-bar");
+    //获取导航栏元素离页面顶部高度
+    var nav_offSetTop = nav.offsetTop;
+    //滚轮滚动事件
+    window.onscroll = function () {
+      //滚动条滚动高度
+      var scroollTop = window.scrollY;
+      //如果滚动条滚动高度>=导航栏高度
+      if (scroollTop >= nav_offSetTop) {
+        //导航栏堆叠到最高层
+        nav.style.zIndex = "999";
+        //导航栏固定
+        nav.style.position = "fixed";
+        //导航栏固定位置在顶部
+        nav.style.top = "0";
+      } else {
+        //当滚动条滚动高度<导航栏高度时，返回原来位置
+        nav.style.position = "static";
+      }
+    }
     /* 实现轮播功能 */
     //1.找到对应的DOM节点
     var box = document.querySelector(".swiper"); //找到容器盒子

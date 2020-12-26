@@ -277,46 +277,46 @@
   <script>
     window.onload = function () {
       /* 获取数量下的input标签 */
-      var input = document.querySelector(".btn input");
+      var inputs = document.querySelectorAll(".btn input");
       /* 获取加号按钮*/
-      var add = document.querySelector(".btn .add");
+      var adds = document.querySelectorAll(".btn .add");
       /* 获取减号按钮*/
-      var subtract = document.querySelector(".btn .subtract");
+      var subtracts = document.querySelectorAll(".btn .subtract");
       /* 获取小计*/
-      var totle = document.querySelector(".cart_warp .totle");
+      var totles = document.querySelectorAll(".cart_warp .totle");
       /* 获取价格*/
-      var price = document.querySelector(".cart_warp .price");
+      var prices = document.querySelectorAll(".cart_warp .price");
       /* 给小计一个初始值 */
-      // for (var i = 0; i < totle.length; i++) {
-      totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
-      // };
-      /* 减号点击事件 */
-      subtract.onclick = function () {
-        jClick(input, totle, price);
-      }
-      /* 加号点击事件 */
-      add.onclick = function () {
-        aClick(input, totle, price)
-      }
-      // for (var s = 0; s < subtracts.length; s++) {
-      //   subtracts[s].onclick = function () {
-      //     if (inputs[s].value > 1) {
-      //       inputs[s].value--;
-      //       totles[s].innerHTML = parseInt(inputs[s].value) * parseInt(prices[s].innerHTML) + '元';
-      //     } else {
-      //       alert("数量不能少于1");
-      //     }
-      //   }
+      for (var i = 0; i < totles.length; i++) {
+        totles[i].innerHTML = parseInt(inputs[i].value) * parseInt(prices[i].innerHTML) + '元';
+      };
+      // /* 减号点击事件 */
+      // subtract.onclick = function () {
+      //   jClick(input, totle, price);
       // }
-
-      // for (var a = 0; a < adds.length; a++) {
-
-      //   adds[a].onclick = function () {
-      //     console.log(a);
-      //     // inputs[a].value++;
-      //     // totles[a].innerHTML = parseInt(inputs[a].value) * parseInt(prices[a].innerHTML) + '元';
-      //   }
+      // /* 加号点击事件 */
+      // add.onclick = function () {
+      //   aClick(input, totle, price)
       // }
+      for (var s = 0; s < subtracts.length; s++) {
+        subtracts[s].onclick = function () {
+          if (inputs[s].value > 1) {
+            inputs[s].value--;
+            totles[s].innerHTML = parseInt(inputs[s].value) * parseInt(prices[s].innerHTML) + '元';
+          } else {
+            alert("数量不能少于1");
+          }
+        }
+      }
+
+      for (var a = 0; a < adds.length; a++) {
+        console.log(adds[a]);
+        adds[a].onclick = function () {
+          console.log(a);
+          inputs[a].value++;
+          totles[a].innerHTML = parseInt(inputs[a].value) * parseInt(prices[a].innerHTML) + '元';
+        }
+      }
     }
   </script>
 </body>

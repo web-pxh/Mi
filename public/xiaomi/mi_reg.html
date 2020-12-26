@@ -46,8 +46,9 @@
 
     .reg span {
       display: inline-block;
-      width: 16%;
       font-size: 12px;
+      color: #ff6700;
+      font-weight: bold;
     }
 
     .title h2 {
@@ -74,6 +75,41 @@
       outline: 0;
       border: 0;
       cursor: pointer;
+    }
+
+    .wrap {
+      position: relative;
+      width: 275px;
+      height: 40px;
+      margin: 10px auto;
+      background-color: #e8e8e8;
+      line-height: 40px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .bg {
+      width: 0;
+      height: 100%;
+      background-color: #ff6700
+    }
+
+    .rect {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .slide {
+      width: 45px;
+      height: 40px;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      position: absolute;
+      left: 0;
+      top: 0
     }
 
     /* 底部 */
@@ -135,7 +171,18 @@
       <a href="./mi_login.html">
         <p class="tips">去登陆</p>
       </a>
+      <div class="wrap">
+        <!-- 绿色背景 -->
+        <div class="bg"></div>
+        <div class="rect">
+          拖到滑块认证
+          <div class="slide">
+            <img src="./img/right.png" alt="">
+          </div>
 
+        </div>
+      </div>
+      <span id="rect_span"></span><br>
       <button id="btn">注册</button>
     </div>
   </div>
@@ -161,6 +208,56 @@
   </div>
   <script src="./js/request.js"></script>
   <script>
+    //滑块验证
+    var oSlide = document.querySelector('.slide');
+    var rect = document.querySelector('.rect');
+    var img = document.querySelector('.slide img');
+    var rectWidth = document.querySelector('.rect').offsetWidth;
+    var slideWidth = document.querySelector('.slide').offsetWidth;
+    var bg = document.querySelector('.bg');
+    var left = 0;
+    oSlide.onmousedown = function (e) {
+      //获取鼠标初始X坐标
+      var initX = e.clientX;
+      document.onmousemove = function (e) {
+        //获取鼠标移动后的x坐标
+        var moveX = e.clientX;
+        //滑块需要移动的left值
+        left = moveX - initX;
+        //判断左右边距
+        if (left < 0) {
+          left = 0
+        }
+        if (left >= rectWidth - slideWidth) {
+          left = rectWidth - slideWidth
+
+        }
+        //设置滑块left样式
+        oSlide.style.left = left + 'px';
+        //设置背景div宽度
+        bg.style.width = left + 'px';
+        //如果滑块拖动到头了
+        if (left >= rectWidth - slideWidth) {
+          //同时改变字体颜色和图片
+          rect.style.color = '#fff';
+          img.src = './img/success.png';
+          //清除鼠标移动事件
+          document.onmousemove = null;
+          ////////ajax请求////////////
+        }
+      }
+    }
+    //鼠标抬起事件
+    document.onmouseup = function () {
+      //当鼠标抬起时，清除鼠标移动事件
+      document.onmousemove = null;
+      //判断是否到头了 
+      //如果没有到头 - 回到原点
+      if (left < rectWidth - slideWidth) {
+        oSlide.style.left = 0;
+        bg.style.width = 0;
+      }
+    }
     /* 获取焦点时提示 */
     uname.onfocus = function () {
       uname_span.innerHTML = "用户名的长度在6~9位之间";
@@ -178,7 +275,39 @@
       phone_span.innerHTML = "请输入合法的手机号码";
     }
     /* 失去焦点时提示 */
+    /* 判断用户名重复 */
+    uname.onblur = function () {
+      ajax("get", `/Mi/getUname`, issuccess, `${uname.value}`);
 
+      function issuccess(result) {
+        if (result == 1) {
+          uname_span.innerHTML = "用户名可以使用"
+        } else {
+          uname_span.innerHTML = "用户名重复"
+        }
+      }
+    };
+    /* 判断密码是否符合规范 */
+    upwd.onblur = function () {
+      upwd_span.innerHTML = "密码可以使用";
+    }
+    /* 判断密码是否重复 */
+    upwd_two.onblur = function () {
+      if (upwd_two.value == upwd.value) {
+        upwd_two_span.innerHTML = "√"
+      } else {
+        upwd_two_span.innerHTML = "两次密码不一致"
+      }
+    };
+    /* 判断邮箱是否符合规范 */
+    email.onblur = function () {
+      email_span.innerHTML = "邮箱可以使用";
+    }
+    /* 判断手机是否符合规范 */
+    phone.onblur = function () {
+      phone_span.innerHTML = "手机可以使用";
+    }
+    /* 点击注册 */
     btn.onclick = function () {
       var formdata = `uname=${uname.value}&upwd=${upwd.value}&email=${email.value }&phone=${phone.value}`;
       if (!uname.value) {
@@ -201,15 +330,20 @@
         phone_span.innerHTML = "手机号不能为空";
         return;
       }
-      ajax("post", `/Mi/reg`, formdata, isReg);
+      if (left >= rectWidth - slideWidth) {
+        ajax("post", `/Mi/reg`, isReg, formdata);
 
-      function isReg(result) {
-        if (result == 1) {
-          alert("注册成功");
-        } else {
-          alert("注册失败");
+        function isReg(result) {
+          if (result == 1) {
+            alert("注册成功");
+          } else {
+            alert("注册失败");
+          }
         }
+      } else {
+        rect_span.innerHTML = "请拖动滑块";
       }
+
       // for (var i = 0; i < inputs.length; i++) {
       //   if (!inputs[i].value) {
       //     spans[i].id.innerHTML = "用户名不能为空";
