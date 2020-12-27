@@ -300,6 +300,10 @@ a {
   overflow: hidden;
 }
 
+.row .item {
+  height: 645px;
+}
+
 .row .list ul {
   /* width: 100%; */
   height: 340px;
