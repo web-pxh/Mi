@@ -118,9 +118,9 @@
         </div>
         <div class="span1">
           <ul>
-            <li><a href="#"><img src="./img/pic4.jpg"></a></li>
-            <li><a href="#"><img src="./img/pic2.jpg"></a></li>
-            <li><a href="#"><img src="./img/pic3.jpg"></a></li>
+            <li><a href="./mi_details.html" target="_blank"><img src="./img/pic4.jpg"></a></li>
+            <li><a href="./mi_details.html" target="_blank"><img src="./img/pic2.jpg"></a></li>
+            <li><a href="./mi_details.html" target="_blank"><img src="./img/pic3.jpg"></a></li>
           </ul>
         </div>
       </div>
@@ -253,86 +253,14 @@
           <!-- 列表 -->
           <div class="item">
             <ul>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic7.webp">
-                    <h3>Note 9</h3>
-                    <p class="desc">天玑 800U处理器，5000mAh电池</p>
-                    <p>1299元</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic7.webp">
-                    <h3>Note 9</h3>
-                    <p class="desc">天玑 800U处理器，5000mAh电池</p>
-                    <p>1299元</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic7.webp">
-                    <h3>Note 9</h3>
-                    <p class="desc">天玑 800U处理器，5000mAh电池</p>
-                    <p>1299元</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic7.webp">
-                    <h3>Note 9</h3>
-                    <p class="desc">天玑 800U处理器，5000mAh电池</p>
-                    <p>1299元</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic7.webp">
-                    <h3>Note 9</h3>
-                    <p class="desc">天玑 800U处理器，5000mAh电池</p>
-                    <p>1299元</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic7.webp">
-                    <h3>Note 9</h3>
-                    <p class="desc">天玑 800U处理器，5000mAh电池</p>
-                    <p>1299元</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic7.webp">
-                    <h3>Note 9</h3>
-                    <p class="desc">天玑 800U处理器，5000mAh电池</p>
-                    <p>1299元</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic7.webp">
-                    <h3>Note 9</h3>
-                    <p class="desc">天玑 800U处理器，5000mAh电池</p>
-                    <p>1299元</p>
-                  </div>
-                </a>
-              </li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
             </ul>
           </div>
         </div>
@@ -1003,8 +931,14 @@
   <script src="./js/utils.js"></script>
   <script>
     window.onload = function () {
-      // var search = window.location.search;
-      // console.log(search);
+      /* 用户名 */
+      var search = window.location.search;
+      var iframe = document.querySelector(".iframe_header").contentWindow;
+      var login = iframe.document.getElementById("login");
+      if (search) {
+        login.innerHTML = search.slice(1);
+        login.href = "#";
+      }
       /* 倒计时 */
       hour.innerHTML = countDown().hour + ':00 场';
       min.innerHTML = countDown().min;
@@ -1050,6 +984,45 @@
       left.onclick = function () {
         lClick(slide_listul, ulwidth, right, left);
       }
+      /* 请求首页商品数据 */
+      /* 获取main下所有的ul */
+      var phoneLists = document.querySelectorAll(".main .item");
+      /* 用来存储ul下所有的li */
+      var allLi = [];
+      for (var i = 0; i < phoneLists.length; i++) {
+        /* 获取每个ul下所有的li */
+        var itemlis = phoneLists[i].querySelectorAll("li");
+        for (var j = 0; j < itemlis.length; j++) {
+          /* 将所有的li放入allLi中 */
+          allLi.push(itemlis[j]);
+        }
+      }
+      /* 发送请求 */
+      ajax("get", `/Mi/index/list`, isListShow);
+
+      /* 回调函数 */
+      function isListShow(result) {
+        if (result.length > 0) {
+          var info = JSON.parse(result);
+          for (var a = 0; a < info.length; a++) {
+            allLi[a].innerHTML = `
+              <a href="#">
+                <div class="content">
+                  <img src=${info[a].img}>
+                  <h3>${info[a].title}</h3>
+                  <p class="desc">${info[a].details}</p>
+                  <p>${info[a].price}</p>
+                </div>
+              </a>
+              `;
+          }
+        } else {
+          console.log("加载失败");
+        }
+      };
+
+
+
     };
   </script>
   <script>
