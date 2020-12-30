@@ -984,19 +984,12 @@
       left.onclick = function () {
         lClick(slide_listul, ulwidth, right, left);
       }
+
+
       /* 请求首页商品数据 */
-      /* 获取main下所有的ul */
-      var phoneLists = document.querySelectorAll(".main .item");
-      /* 用来存储ul下所有的li */
-      var allLi = [];
-      for (var i = 0; i < phoneLists.length; i++) {
-        /* 获取每个ul下所有的li */
-        var itemlis = phoneLists[i].querySelectorAll("li");
-        for (var j = 0; j < itemlis.length; j++) {
-          /* 将所有的li放入allLi中 */
-          allLi.push(itemlis[j]);
-        }
-      }
+      /* 获取main下ul */
+      var phoneList = document.querySelector(".main-box2 .item");
+      var itemlis = phoneList.querySelectorAll("li");
       /* 发送请求 */
       ajax("get", `/Mi/index/list`, isListShow);
 
@@ -1004,25 +997,20 @@
       function isListShow(result) {
         if (result.length > 0) {
           var info = JSON.parse(result);
-          for (var a = 0; a < info.length; a++) {
-            allLi[a].innerHTML = `
+          for (var i = 0; i < info.length; i++) {
+            itemlis[i].innerHTML = `
               <a href="#">
                 <div class="content">
-                  <img src=${info[a].img}>
-                  <h3>${info[a].title}</h3>
-                  <p class="desc">${info[a].details}</p>
-                  <p>${info[a].price}</p>
+                  <img src=${info[i].img}>
+                  <h3>${info[i].title}</h3>
+                  <p class="desc">${info[i].details}</p>
+                  <p>${info[i].price}</p>
                 </div>
               </a>
               `;
           }
-        } else {
-          console.log("加载失败");
         }
       };
-
-
-
     };
   </script>
   <script>

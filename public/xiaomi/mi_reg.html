@@ -277,19 +277,31 @@
     /* 失去焦点时提示 */
     /* 判断用户名重复 */
     uname.onblur = function () {
-      ajax("get", `/Mi/getUname`, issuccess, `${uname.value}`);
+      var result = /^\w{6,9}$/.test(uname.value);
+      if (result == true) {
+        ajax("get", `/Mi/getUname`, issuccess, `${uname.value}`);
 
-      function issuccess(result) {
-        if (result == 1) {
-          uname_span.innerHTML = "用户名可以使用"
-        } else {
-          uname_span.innerHTML = "用户名重复"
+        function issuccess(result) {
+          if (result == 1) {
+            uname_span.innerHTML = "用户名可以使用"
+          } else {
+            uname_span.innerHTML = "用户名重复"
+          }
         }
+      } else {
+        uname_span.innerHTML = "用户名格式错误";
       }
+
     };
     /* 判断密码是否符合规范 */
     upwd.onblur = function () {
-      upwd_span.innerHTML = "密码可以使用";
+      var result = /^\w{6,12}$/.test(upwd.value);
+      if (result == true) {
+        upwd_span.innerHTML = "密码可以使用";
+      } else {
+        upwd_span.innerHTML = "密码格式错误";
+      }
+
     }
     /* 判断密码是否重复 */
     upwd_two.onblur = function () {
@@ -301,11 +313,23 @@
     };
     /* 判断邮箱是否符合规范 */
     email.onblur = function () {
-      email_span.innerHTML = "邮箱可以使用";
+      var result = /^\w+@\w+\.\w+(\.cn)?$/.test(email.value);
+      if (result == true) {
+        email_span.innerHTML = "邮箱可以使用";
+      } else {
+        email_span.innerHTML = "邮箱格式错误";
+      }
+
     }
     /* 判断手机是否符合规范 */
     phone.onblur = function () {
-      phone_span.innerHTML = "手机可以使用";
+      var result = /^((\+86|0086)\s+)?1[3-9]\d{9}$/.test(phone.value);
+      if (result == true) {
+        phone_span.innerHTML = "手机可以使用";
+      } else {
+        phone_span.innerHTML = "手机格式错误";
+      }
+
     }
     /* 点击注册 */
     btn.onclick = function () {

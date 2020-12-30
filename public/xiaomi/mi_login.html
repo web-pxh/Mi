@@ -189,6 +189,7 @@
         return;
       }
       ajax("get", `/Mi/login`, issuccess, `${uname.value}&${upwd.value}`);
+
       function issuccess(result) {
         if (result == 1) {
           tips.style.display = "block";
