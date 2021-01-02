@@ -23,10 +23,19 @@
     }
 
     .reg {
-      width: 900px;
-      margin: 50px auto;
+      width: 40rem;
+      margin-left: 35%;
       padding-top: 100px;
+    }
+
+    .reg .logo {
+      display: inline-block;
+      width: 450px;
       text-align: center;
+    }
+
+    #content {
+      display: inline-block;
     }
 
     .reg label {
@@ -45,19 +54,22 @@
     }
 
     .reg span {
-      display: inline-block;
-      font-size: 12px;
+      font-size: 14px;
       color: #ff6700;
       font-weight: bold;
+      margin-left: 10px;
     }
 
     .title h2 {
+      display: inline-block;
+      width: 450px;
       font-weight: normal;
+      text-align: center;
     }
 
     .tips {
-      width: 200px;
-      margin: 0 auto;
+      width: 350px;
+      margin: 0;
       font-size: 14px;
       text-align: right;
       color: #ff6700;
@@ -71,7 +83,7 @@
       line-height: 50px;
       background-color: #ff6700;
       color: #fff;
-      margin: 10px 31%;
+      margin: 15px 0 0 75px;
       outline: 0;
       border: 0;
       cursor: pointer;
@@ -81,7 +93,7 @@
       position: relative;
       width: 275px;
       height: 40px;
-      margin: 10px auto;
+      margin: 15px 0 15px 80px;
       background-color: #e8e8e8;
       line-height: 40px;
       text-align: center;
@@ -102,6 +114,12 @@
       left: 0;
     }
 
+    #rect_span {
+      display: none;
+      width: 350px;
+      text-align: right;
+    }
+
     .slide {
       width: 45px;
       height: 40px;
@@ -114,7 +132,7 @@
 
     /* 底部 */
     .footer {
-      width: 80rem;
+      width: 100%;
       margin: 5rem auto;
       text-align: center;
       font-size: 14px;
@@ -182,7 +200,7 @@
 
         </div>
       </div>
-      <span id="rect_span"></span><br>
+      <span id="rect_span"></span>
       <button id="btn">注册</button>
     </div>
   </div>
@@ -276,6 +294,7 @@
     }
     /* 失去焦点时提示 */
     /* 判断用户名重复 */
+    var check = false;
     uname.onblur = function () {
       var result = /^\w{6,9}$/.test(uname.value);
       if (result == true) {
@@ -284,12 +303,15 @@
         function issuccess(result) {
           if (result == 1) {
             uname_span.innerHTML = "用户名可以使用"
+            check = true;
           } else {
-            uname_span.innerHTML = "用户名重复"
+            uname_span.innerHTML = "用户名重复";
+            check = false;
           }
         }
       } else {
         uname_span.innerHTML = "用户名格式错误";
+        check = false;
       }
 
     };
@@ -305,11 +327,16 @@
     }
     /* 判断密码是否重复 */
     upwd_two.onblur = function () {
-      if (upwd_two.value == upwd.value) {
-        upwd_two_span.innerHTML = "√"
+      if (!upwd_two.value) {
+        upwd_two_span.innerHTML = "请先输入密码";
       } else {
-        upwd_two_span.innerHTML = "两次密码不一致"
+        if (upwd_two.value == upwd.value) {
+          upwd_two_span.innerHTML = "√"
+        } else {
+          upwd_two_span.innerHTML = "两次密码不一致"
+        }
       }
+
     };
     /* 判断邮箱是否符合规范 */
     email.onblur = function () {
@@ -333,7 +360,7 @@
     }
     /* 点击注册 */
     btn.onclick = function () {
-      var formdata = `uname=${uname.value}&upwd=${upwd.value}&email=${email.value }&phone=${phone.value}`;
+      var formdata = `uname=${uname.value}&upwd=${upwd.value}&email=${email.value}&phone=${phone.value}`;
       if (!uname.value) {
         uname_span.innerHTML = "用户名不能为空";
         return;
@@ -360,14 +387,15 @@
         function isReg(result) {
           if (result == 1) {
             alert("注册成功");
+            location.href = `mi_login.html`;
           } else {
             alert("注册失败");
           }
         }
       } else {
+        rect_span.style.display = "inline-block";
         rect_span.innerHTML = "请拖动滑块";
       }
-
       // for (var i = 0; i < inputs.length; i++) {
       //   if (!inputs[i].value) {
       //     spans[i].id.innerHTML = "用户名不能为空";

@@ -12,9 +12,7 @@
 
 <body>
   <!-- 头部 -->
-  <header>
-    <iframe src="header.html" class="iframe_header" scrolling="no" frameborder="0"></iframe>
-  </header>
+  <header id="footer"></header>
   <!-- 分类 -->
   <div class="category">
     <div class="container">
@@ -80,6 +78,10 @@
               <em></em>
             </li>
           </ul>
+        </div>
+        <!-- 隐藏的内容 -->
+        <div class="children">
+
         </div>
         <!-- 轮播图 -->
         <div class="swiper">
@@ -918,27 +920,39 @@
     </div>
   </div>
   <!-- 底部 -->
-  <footer>
-    <iframe src="footer.html" class="iframe_footer" scrolling="no" frameborder="0"></iframe>
-  </footer>
+  <footer id="footer"> </footer>
+  <!-- 左侧楼层滚动 -->
+  <div class="left_nav">
+    <ul>
+      <li class="on" style="width: 32px;">小米闪购</li>
+      <li>手机</li>
+      <li>家电</li>
+      <li>智能</li>
+      <li>搭配</li>
+      <li>配件</li>
+      <li>周边</li>
+      <li>视频</li>
+    </ul>
+  </div>
   <!-- 右侧的导航栏 -->
   <nav>
     <iframe src="bar.html" frameborder="0" class="iframe_bar" scrolling="no"></iframe>
   </nav>
 
   <!-- 引入工具类 -->
+  <script src="./js/jquery.min.js"></script>
   <script src="./js/request.js"></script>
   <script src="./js/utils.js"></script>
   <script>
     window.onload = function () {
       /* 用户名 */
-      var search = window.location.search;
-      var iframe = document.querySelector(".iframe_header").contentWindow;
-      var login = iframe.document.getElementById("login");
-      if (search) {
-        login.innerHTML = search.slice(1);
-        login.href = "#";
-      }
+      // var search = window.location.search;
+      // var iframe = document.querySelector(".iframe_header").contentWindow;
+      // var login = iframe.document.getElementById("login");
+      // if (search) {
+      //   login.innerHTML = search.slice(1);
+      //   login.href = "#";
+      // }
       /* 倒计时 */
       hour.innerHTML = countDown().hour + ':00 场';
       min.innerHTML = countDown().min;
@@ -985,6 +999,48 @@
         lClick(slide_listul, ulwidth, right, left);
       }
 
+      /* 楼层滚动 */
+      /* 获取主要内容这个大的div */
+      var box = document.querySelector('.main .container');
+      /* 获取.main .container下所有的子元素*/
+      var lous = box.children;//楼层
+      /* 获取整个左侧导航栏 */
+      var leftNav = document.querySelector('.left_nav ul');
+      /* 获取ul下所有的li */
+      var btns = leftNav.getElementsByTagName('li');//按钮
+      /* 获取小米闪购这行元素 */
+      var title = document.querySelector(".main-box1 .title");
+
+      //1.点击按钮可以跳转到对应楼层
+      for (var i = 0; i < btns.length; i++) {
+        //绑定索引
+        btns[i].index = i;
+        btns[i].onclick = function () {
+          // console.log(this.index);
+          //排他
+          for (var j = 0; j < btns.length; j++) {
+            btns[j].className = '';
+          }
+          this.className = 'on';
+          var ih = lous[this.index].offsetTop;
+          window.scrollTo(0, ih);
+        }
+
+      }
+
+      //2.滚动滑轮，到达临界点的时候，按钮跟着高亮显示
+      window.onscroll = function () {
+        var scrollTop = window.scrollY;//滚动距离
+        for (var i = 0; i < lous.length; i++) {
+          if (scrollTop >= lous[i].offsetTop) {
+            //排他 设置高亮
+            for (var j = 0; j < btns.length; j++) {
+              btns[j].className = '';
+            }
+            btns[i].className = 'on';
+          }
+        }
+      }
 
       /* 请求首页商品数据 */
       /* 获取main下ul */
