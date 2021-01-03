@@ -12,9 +12,9 @@
 
 <body>
   <!-- 头部 -->
-  <header>
+  <!-- <header>
     <iframe src="header.html" class="iframe_header" scrolling="no"></iframe>
-  </header>
+  </header> -->
   <!-- 导航栏 -->
   <div class="nav-bar" id="nav-bar">
     <div class="container all">
@@ -120,14 +120,14 @@
           <h2>选择小米提供的意外保护</h2>
           <span class="span"><a href="javascript:alert('恭喜你,终于发现了，你真是闲着蛋疼')">了解意外保护 ></a></span>
           <ul>
-            <li class="check in">
-              <i><em class="on">√</em></i>
+            <li class="check ">
+              <i><em class="">√</em></i>
               <img src="./img/bao.png">
               <div class="box">
                 <h3>意外保障服务<span>249元</span></h3>
                 <p>手机意外碎屏/进水/碾压等损坏</p>
                 <div>
-                  <i><em class="on">√</em></i>
+                  <i><em class="">√</em></i>
                   <span>我已阅读<a href="#">服务条款|</a><a href="#">常见问题</a></span>
                 </div>
               </div>
@@ -136,7 +136,7 @@
               <i><em>√</em></i>
               <img src="./img/bao.png">
               <div class="box">
-                <h3>意外保障服务<span>249元</span></h3>
+                <h3>碎屏保障服务<span>249元</span></h3>
                 <p>手机意外碎屏/进水/碾压等损坏</p>
                 <div>
                   <i><em>√</em></i>
@@ -299,9 +299,18 @@
     </div>
   </div>
   <!-- 底部 -->
-  <footer>
+  <!-- <footer>
     <iframe src="footer.html" class="iframe_footer" scrolling="no" frameborder="0"></iframe>
-  </footer>
+  </footer> -->
+  <script>
+    var bh = document.querySelector(".protect");
+    var bhLi = bh.querySelectorAll("ul li");
+    for (var i = 0; i < bhLi.length; i++) {
+      bhLi[i].onclick = function () {
+        this.classList.add('in');
+      }
+    }
+  </script>
   <script>
     /* 导航栏固定 */
     //获取导航栏元素
