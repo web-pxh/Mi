@@ -12,9 +12,7 @@
 
 <body>
   <!-- 头部 -->
-  <!-- <header>
-    <iframe src="header.html" class="iframe_header" scrolling="no"></iframe>
-  </header> -->
+  <header id="header"></header>
   <!-- 导航栏 -->
   <div class="nav-bar" id="nav-bar">
     <div class="container all">
@@ -299,12 +297,16 @@
     </div>
   </div>
   <!-- 底部 -->
-  <!-- <footer>
-    <iframe src="footer.html" class="iframe_footer" scrolling="no" frameborder="0"></iframe>
-  </footer> -->
+  <footer id="footer"> </footer>
+
+
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/header.js"></script>
+  <script src="./js/footer.js"></script>
   <script>
     var bh = document.querySelector(".protect");
     var bhLi = bh.querySelectorAll("ul li");
+    
     for (var i = 0; i < bhLi.length; i++) {
       bhLi[i].onclick = function () {
         this.classList.add('in');
@@ -314,7 +316,7 @@
   <script>
     /* 导航栏固定 */
     //获取导航栏元素
-    var nav = document.getElementById("nav-bar");
+    var nav = document.querySelector(".nav-bar");
     //获取导航栏元素离页面顶部高度
     var nav_offSetTop = nav.offsetTop;
     //滚轮滚动事件
@@ -329,7 +331,7 @@
         nav.style.position = "fixed";
         //导航栏固定位置在顶部
         nav.style.top = "0";
-      } else {
+      } else if (scroollTop < nav_offSetTop) {
         //当滚动条滚动高度<导航栏高度时，返回原来位置
         nav.style.position = "static";
       }

@@ -61,8 +61,8 @@ a {
 }
 
 /* 导航栏右侧 */
-.right {
-  display: flex;
+.top-bar .right {
+  /* display: flex; */
   justify-content: space-between;
   float: right;
 }
@@ -80,14 +80,14 @@ a {
   text-align: center;
   cursor: pointer;
   font-size: 12px;
-  background: url("./img/cart.png") no-repeat;
+  background: url("../img/cart.png") no-repeat;
   background-size: 18px 18px;
   background-position: 15px 10px;
   background-color: #424242;
 }
 
 .right .cart:hover {
-  background: url("./img/cart\(1\).png") no-repeat;
+  background: url("../img/cart\(1\).png") no-repeat;
   background-size: 18px 18px;
   background-position: 15px 10px;
   background-color: #fff;
@@ -157,13 +157,13 @@ a {
   height: 50px;
   border: solid 1px #e0e0e0;
   border-radius: 5px;
-  background: url(./img/search.png) no-repeat 50% 50%;
+  background: url(../img/search.png) no-repeat 50% 50%;
   background-size: 20px 20px;
   cursor: pointer;
 }
 
 .header-search .search-btn:hover {
-  background: url(./img/search\(1\).png) no-repeat 50% 50% #ff6700;
+  background: url(../img/search\(1\).png) no-repeat 50% 50% #ff6700;
   background-size: 20px 20px;
 }
 

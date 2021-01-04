@@ -22,7 +22,24 @@ route.get("/index/list", (req, res) => {
   pool.query(sql, (err, result) => {
     if (err) throw err;
     if (result.length > 0) {
-      res.send(result);
+      // console.log(result);
+
+      var phone = [];
+      var houes = [];
+      for (var key in result) {
+        if (result[key].shop_type == 0) {
+          phone.push(result[key])
+        } else if (result[key].shop_type == 1) {
+          houes.push(result[key])
+        }
+      }
+      console.log(phone);
+      console.log(houes);
+      var all = {
+        0: phone,
+        1: houes
+      }
+      res.send(all);
     } else {
       res.send("0");
     }

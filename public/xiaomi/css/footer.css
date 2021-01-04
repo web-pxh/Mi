@@ -115,7 +115,7 @@ li {
   display: inline-block;
   width: 24px;
   height: 24px;
-  background: url(./img/wb.png) 50% 0 no-repeat;
+  background: url(../img/wb.png) 50% 0 no-repeat;
   background-size: cover;
   vertical-align: middle;
   margin-left: 6px;
@@ -123,17 +123,17 @@ li {
 }
 
 .footer-link .tel .follow .wb:hover {
-  background: url(./img/wb@2x.png) 50% 0 no-repeat;
+  background: url(../img/wb@2x.png) 50% 0 no-repeat;
   background-size: cover;
 }
 
 .footer-link .tel .follow .wx {
-  background: url(./img/wx.png) 50% 0 no-repeat;
+  background: url(../img/wx.png) 50% 0 no-repeat;
   background-size: cover;
 }
 
 .footer-link .tel .follow .wx:hover {
-  background: url(./img/wx@2x.png) 50% 0 no-repeat;
+  background: url(../img/wx@2x.png) 50% 0 no-repeat;
   background-size: cover;
 }
 

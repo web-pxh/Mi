@@ -12,7 +12,7 @@
 
 <body>
   <!-- 头部 -->
-  <header id="footer"></header>
+  <header id="header"></header>
   <!-- 分类 -->
   <div class="category">
     <div class="container">
@@ -134,7 +134,7 @@
       <!-- 闪购 -->
       <div class="main-box1">
         <!-- 标题 -->
-        <div class="title">
+        <div class="title" id="xmsg">
           <h2>小米闪购</h2>
         </div>
         <!-- 内容 -->
@@ -924,7 +924,7 @@
   <!-- 左侧楼层滚动 -->
   <div class="left_nav">
     <ul>
-      <li class="on" style="width: 32px;">小米闪购</li>
+      <li style="width: 32px;">小米闪购</li>
       <li>手机</li>
       <li>家电</li>
       <li>智能</li>
@@ -943,6 +943,8 @@
   <script src="./js/jquery.min.js"></script>
   <script src="./js/request.js"></script>
   <script src="./js/utils.js"></script>
+  <script src="./js/header.js"></script>
+  <script src="./js/footer.js"></script>
   <script>
     window.onload = function () {
       /* 用户名 */
@@ -1003,13 +1005,11 @@
       /* 获取主要内容这个大的div */
       var box = document.querySelector('.main .container');
       /* 获取.main .container下所有的子元素*/
-      var lous = box.children;//楼层
+      var lous = box.children; //楼层
       /* 获取整个左侧导航栏 */
-      var leftNav = document.querySelector('.left_nav ul');
+      var leftNav = document.querySelector('.left_nav');
       /* 获取ul下所有的li */
-      var btns = leftNav.getElementsByTagName('li');//按钮
-      /* 获取小米闪购这行元素 */
-      var title = document.querySelector(".main-box1 .title");
+      var btns = leftNav.querySelectorAll('ul li'); //按钮
 
       //1.点击按钮可以跳转到对应楼层
       for (var i = 0; i < btns.length; i++) {
@@ -1030,7 +1030,7 @@
 
       //2.滚动滑轮，到达临界点的时候，按钮跟着高亮显示
       window.onscroll = function () {
-        var scrollTop = window.scrollY;//滚动距离
+        var scrollTop = window.scrollY; //滚动距离
         for (var i = 0; i < lous.length; i++) {
           if (scrollTop >= lous[i].offsetTop) {
             //排他 设置高亮
@@ -1040,6 +1040,15 @@
             btns[i].className = 'on';
           }
         }
+        if (xmsg.getBoundingClientRect().top < 100) {
+          leftNav.style.position = "fixed";
+          leftNav.style.top = 50 + 'px';
+        } else if (xmsg.getBoundingClientRect().top > 40) {
+          leftNav.style.position = "absolute";
+          leftNav.style.top = 850 + 'px';
+          btns[0].className = '';
+        }
+
       }
 
       /* 请求首页商品数据 */

@@ -28,7 +28,8 @@ CREATE TABLE xm_index_product(
   title VARCHAR(64),
   details VARCHAR(128),
   img VARCHAR(128),
-  price DECIMAL(10,2)
+  price DECIMAL(10,2),
+  shop_type INT
 );
 /**添加用户信息**/
 INSERT INTO xm_user VALUES
@@ -45,11 +46,13 @@ INSERT INTO xm_swiper VALUES
 (NULL,'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9ebff5f5c1f52f2dbdd611897adbefd4.jpg?thumb=1&w=1226&h=460&f=webp&q=90','轮播广告商品5');
 /** 添加首页商品 **/
 INSERT INTO xm_index_product VALUES
-(NULL, '小米11', '骁龙888 | 2K四曲面屏', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5a260090e0e08770b0bd865845a4b4ab.jpg', 3999),
-(NULL, 'Note 9 Pro', '一亿像素夜景相机，120Hz六档变速高刷屏', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4e75e528fb468aee107f551179aa0799.jpg', 1599),
-(NULL, 'Redmi K30S 至尊纪念版', '144Hz[7档]变速高刷屏', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7cf7a05df86a858a1f391a0378d8c27d.jpg', 2599),
-(NULL, '小米10 至尊版', '120X 变焦/120W秒充/120Hz屏幕', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d880ff45a9a3b70527770e01521fc939.jpg', 5299),
-(NULL, '小米11', '骁龙888 | 2K四曲面屏', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5a260090e0e08770b0bd865845a4b4ab.jpg', 3999),
-(NULL, 'Note 9 Pro', '一亿像素夜景相机，120Hz六档变速高刷屏', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4e75e528fb468aee107f551179aa0799.jpg', 1599),
-(NULL, 'Redmi K30S 至尊纪念版', '144Hz[7档]变速高刷屏', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7cf7a05df86a858a1f391a0378d8c27d.jpg', 2599),
-(NULL, '小米10 至尊版', '120X 变焦/120W秒充/120Hz屏幕', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d880ff45a9a3b70527770e01521fc939.jpg', 5299);
+(NULL, '小米11', '骁龙888 | 2K四曲面屏', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5a260090e0e08770b0bd865845a4b4ab.jpg', 3999,0),
+(NULL, 'Note 9 Pro', '一亿像素夜景相机，120Hz六档变速高刷屏', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4e75e528fb468aee107f551179aa0799.jpg', 1599,0),
+(NULL, 'Redmi K30S 至尊纪念版', '144Hz[7档]变速高刷屏', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7cf7a05df86a858a1f391a0378d8c27d.jpg', 2599,0),
+(NULL, '小米10 至尊版', '120X 变焦/120W秒充/120Hz屏幕', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d880ff45a9a3b70527770e01521fc939.jpg', 5299,0),
+(NULL, '小米11', '骁龙888 | 2K四曲面屏', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5a260090e0e08770b0bd865845a4b4ab.jpg', 3999,0),
+(NULL, 'Note 9 Pro', '一亿像素夜景相机，120Hz六档变速高刷屏', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4e75e528fb468aee107f551179aa0799.jpg', 1599,0),
+(NULL, 'Redmi K30S 至尊纪念版', '144Hz[7档]变速高刷屏', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7cf7a05df86a858a1f391a0378d8c27d.jpg', 2599,0),
+(NULL, '小米10 至尊版', '120X 变焦/120W秒充/120Hz屏幕', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d880ff45a9a3b70527770e01521fc939.jpg', 5299,0),
+(NULL, '洗衣机', '120X 变焦/120W秒充/120Hz屏幕', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d880ff45a9a3b70527770e01521fc939.jpg', 5299,1),
+(NULL, '洗衣机', '120X 变焦/120W秒充/120Hz屏幕', 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d880ff45a9a3b70527770e01521fc939.jpg', 5299,1);

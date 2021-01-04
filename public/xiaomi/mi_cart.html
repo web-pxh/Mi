@@ -270,9 +270,9 @@
     </div>
   </div>
   <!-- 底部 -->
-  <footer>
-    <iframe src="footer.html" class="iframe_footer" scrolling="no" frameborder="0"></iframe>
-  </footer>
+  <footer id="footer"> </footer>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/footer.js"></script>
   <script src="./js/utils.js"></script>
   <script>
     window.onload = function () {
@@ -298,7 +298,7 @@
       // add.onclick = function () {
       //   aClick(input, totle, price)
       // }
-      for (var s = 0; s < subtracts.length-1; s++) {
+      for (var s = 0; s < subtracts.length - 1; s++) {
         subtracts[s].onclick = function () {
           if (inputs[s].value > 1) {
             inputs[s].value--;
@@ -308,8 +308,8 @@
           }
         }
       }
-      
-      for (var a = 0; a < adds.length-1; a++) {
+
+      for (var a = 0; a < adds.length - 1; a++) {
         adds[a].onclick = function () {
           inputs[a].value++;
           totles[a].innerHTML = parseInt(inputs[a].value) * parseInt(prices[a].innerHTML) + '元';
