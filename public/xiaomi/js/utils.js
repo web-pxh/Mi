@@ -62,6 +62,21 @@ function lClick(slide_listul, ulwidth, right, left) {
     left.setAttribute('disabled', true);
   }
 }
+/* 获取首页列表数据 */
+function getData(msg, msgLi) {
+  for (var i = 0; i < msg.length; i++) {
+    msgLi[i].innerHTML = `
+      <a href="./mi_details.html?${msg[i].pid}" target='_blank'>
+        <div class="content">
+          <img src=${msg[i].img}>
+          <h3>${msg[i].title}</h3>
+          <p class="desc">${msg[i].details}</p>
+          <p>${msg[i].price}元</p>
+        </div>
+      </a>
+      `;
+  }
+}
 /* 购物车减号点击事件 */
 function jClick(input, totle, price) {
   if (input.value > 1) {

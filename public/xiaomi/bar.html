@@ -1,131 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./css/normalize.css">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    ul {
-      margin: 0;
-      padding: 0;
-    }
-
-    li {
-      list-style-type: none;
-      display: inline-block;
-    }
-
-    /* 右侧的导航栏 */
-    .tool-bar {
-      display: flex;
-      flex-direction: row-reverse;
-      flex-wrap: wrap;
-      width: 85px;
-      height: 540px;
-      /* position: fixed;
-      bottom: 80px;
-      right: 0px; */
-    }
-
-    .tool-bar a {
-      width: 85px;
-      height: 90px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      padding-bottom: 20px;
-
-    }
-
-    .tool-bar a :hover {
-      color: #ff6700;
-    }
-
-    .tool-bar a div {
-      position: relative;
-    }
-
-    .tool-bar a img {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      bottom: 25px;
-      left: 10px;
-    }
-
-    .tool-bar a span {
-      font-size: 14px;
-      color: #757575;
-      transition: color .3s;
-    }
-
-    .static {
-      opacity: 1;
-    }
-
-    .hover {
-      opacity: 0;
-      transition: opacity .3s;
-    }
-
-    .hover:hover {
-      opacity: 1;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- 右侧的导航栏 -->
-  <div class="tool-bar">
-    <a href="#">
-      <div>
-        <img src="./img/right/app.png" class="static">
-        <img src="./img/right/app1.png" class="hover">
-      </div>
-      <span>手机APP</span>
-    </a>
-    <a href="#">
-      <div>
-        <img src="./img/right/user.png" class="static">
-        <img src="./img/right/user1.png" class="hover">
-      </div>
-      <span>个人中心</span>
-    </a>
-    <a href="#">
-      <div>
-        <img src="./img/right/shouhou.png" class="static">
-        <img src="./img/right/shouhou1.png" class="hover">
-      </div>
-      <span>售后服务</span>
-    </a>
-    <a href="#">
-      <div>
-        <img src="./img/right/rengong.png" class="static">
-        <img src="./img/right/rengong1.png" class="hover">
-      </div>
-      <span>人工服务</span>
-    </a>
-    <a href="#">
-      <div>
-        <img src="./img/right/cart.png" class="static" style="left: 4px;">
-        <img src="./img/right/cart1.png" class="hover" style="left: 4px;">
-      </div>
-      <span>购物车</span>
-    </a>
-    <a href="#">
-      <div>
-        <img src="./img/right/totop.png" class="static" style="left: 4px;">
-        <img src="./img/right/totop1.png" class="hover" style="left: 4px;">
-      </div>
-      <span>回顶部</span>
-    </a>
-  </div>
-</body>
-
-</html>
+<div class="tool-bar">
+  <a href="#">
+    <div>
+      <img src="./img/right/app.png" class="static">
+      <img src="./img/right/app1.png" class="hover">
+    </div>
+    <span>手机APP</span>
+  </a>
+  <a href="#">
+    <div>
+      <img src="./img/right/user.png" class="static">
+      <img src="./img/right/user1.png" class="hover">
+    </div>
+    <span>个人中心</span>
+  </a>
+  <a href="#">
+    <div>
+      <img src="./img/right/shouhou.png" class="static">
+      <img src="./img/right/shouhou1.png" class="hover">
+    </div>
+    <span>售后服务</span>
+  </a>
+  <a href="#">
+    <div>
+      <img src="./img/right/rengong.png" class="static">
+      <img src="./img/right/rengong1.png" class="hover">
+    </div>
+    <span>人工服务</span>
+  </a>
+  <a href="#">
+    <div>
+      <img src="./img/right/cart.png" class="static" style="left: 4px;">
+      <img src="./img/right/cart1.png" class="hover" style="left: 4px;">
+    </div>
+    <span>购物车</span>
+  </a>
+  <a href="#" id="toTop">
+    <div>
+      <img src="./img/right/totop.png" class="static" style="left: 4px;">
+      <img src="./img/right/totop1.png" class="hover" style="left: 4px;">
+    </div>
+    <span>回顶部</span>
+  </a>
+</div>

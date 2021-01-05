@@ -1,17 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  list-style-type: none;
-  display: inline-block;
-}
-
 a {
   color: #fff;
 }
@@ -126,7 +112,11 @@ a {
   height: 55px;
   margin-right: 16px;
 }
-
+.header-logo img:hover{
+  animation:heartBeat;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
 
 .header-nav li>a {
   color: #333;

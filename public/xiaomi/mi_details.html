@@ -116,7 +116,7 @@
         <!-- 意外保护 -->
         <div class="protect">
           <h2>选择小米提供的意外保护</h2>
-          <span class="span"><a href="javascript:alert('恭喜你,终于发现了，你真是闲着蛋疼')">了解意外保护 ></a></span>
+          <span class="span"><a href="javascript:alert('你在点点！！！')">了解意外保护 ></a></span>
           <ul>
             <li class="check ">
               <i><em class="">√</em></i>
@@ -147,7 +147,7 @@
         <!-- 延长保修 -->
         <div class="protect">
           <h2>选择小米提供的延长保修</h2>
-          <span class="span"><a href="javascript:alert('恭喜你,终于发现了，你真是闲着蛋疼')">了解延长保修></a></span>
+          <span class="span"><a href="javascript:alert('你在点点！！！')">了解延长保修></a></span>
           <ul>
             <li class="check in">
               <i><em class="on">√</em></i>
@@ -166,7 +166,7 @@
         <!-- 云空间服务 -->
         <div class="protect">
           <h2>选择小米提供的云空间服务</h2>
-          <span class="span"><a href="javascript:alert('恭喜你,终于发现了，你真是闲着蛋疼')">了解云空间服务 ></a></span>
+          <span class="span"><a href="javascript:alert('你在点点！！！')">了解云空间服务 ></a></span>
           <ul>
             <li class="check in">
               <i><em class="on">√</em></i>
@@ -301,17 +301,29 @@
 
 
   <script src="./js/jquery.min.js"></script>
-  <script src="./js/header.js"></script>
-  <script src="./js/footer.js"></script>
+  <script src="./js/components.js"></script>
+  <script src="./js/request.js"></script>
   <script>
-    var bh = document.querySelector(".protect");
-    var bhLi = bh.querySelectorAll("ul li");
-    
-    for (var i = 0; i < bhLi.length; i++) {
-      bhLi[i].onclick = function () {
-        this.classList.add('in');
+    var search = window.location.search;
+    /* 获取详情 */
+    ajax("get", `/Mi/details`, isSuccess, search.slice(1));
+
+    function isSuccess(result) {
+      if (result.length > 0) {
+        details = JSON.parse(result);
+        console.log(details);
+      } else {
+        console.log("加载失败");
       }
     }
+    // var bh = document.querySelector(".protect");
+    // var bhLi = bh.querySelectorAll("ul li");
+
+    // for (var i = 0; i < bhLi.length; i++) {
+    //   bhLi[i].onclick = function () {
+    //     this.classList.add('in');
+    //   }
+    // }
   </script>
   <script>
     /* 导航栏固定 */
