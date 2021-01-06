@@ -547,7 +547,7 @@
   <!-- 底部 -->
   <footer id="footer"></footer>
 
-  
+
   <!-- 引入工具类 -->
   <script src="./js/jquery.min.js"></script>
   <script src="./js/request.js"></script>
@@ -555,14 +555,17 @@
   <script src="./js/components.js"></script>
   <script>
     window.onload = function () {
+      var a = document.getElementById('aaa');
+      console.log(a);
+      console.log(11111);
       /* 用户名 */
-      // var search = window.location.search;
-      // var iframe = document.querySelector(".iframe_header").contentWindow;
-      // var login = iframe.document.getElementById("login");
-      // if (search) {
-      //   login.innerHTML = search.slice(1);
-      //   login.href = "#";
-      // }
+      var search = window.location.search;
+      var login = document.getElementById("header");
+      // console.log(login);
+      if (search) {
+        login.innerHTML = search.slice(1);
+        login.href = "#";
+      }
       /* 倒计时 */
       hour.innerHTML = countDown().hour + ':00 场';
       min.innerHTML = countDown().min;
@@ -694,12 +697,12 @@
           /*  周边*/
           var periphery = info[5];
 
-          getData(phone, phonelis);
-          getData(houes, houeslis);
-          getData(intelligence, intelligencelis);
-          getData(collocation, collocationlis);
-          getData(parts, partslis);
-          getData(periphery, peripherylis);
+          getData(phone, phonelis, search);
+          getData(houes, houeslis, search);
+          getData(intelligence, intelligencelis, search);
+          getData(collocation, collocationlis, search);
+          getData(parts, partslis, search);
+          getData(periphery, peripherylis, search);
         }
       };
     };

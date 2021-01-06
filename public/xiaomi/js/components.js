@@ -5,6 +5,8 @@ $(function () {
     success: function (result) {
       $(result).replaceAll("#header");
       $(`<link rel="stylesheet" href="./css/header.css">`).appendTo("head");
+      var login = document.getElementById("header");
+      console.log(login);
     }
   })
 });

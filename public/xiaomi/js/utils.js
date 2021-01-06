@@ -63,10 +63,10 @@ function lClick(slide_listul, ulwidth, right, left) {
   }
 }
 /* 获取首页列表数据 */
-function getData(msg, msgLi) {
+function getData(msg, msgLi, search) {
   for (var i = 0; i < msg.length; i++) {
     msgLi[i].innerHTML = `
-      <a href="./mi_details.html?${msg[i].pid}" target='_blank'>
+      <a href="./mi_details.html?pid=${msg[i].pid}" target='_blank'>
         <div class="content">
           <img src=${msg[i].img}>
           <h3>${msg[i].title}</h3>
@@ -76,18 +76,4 @@ function getData(msg, msgLi) {
       </a>
       `;
   }
-}
-/* 购物车减号点击事件 */
-function jClick(input, totle, price) {
-  if (input.value > 1) {
-    input.value--;
-    totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
-  } else {
-    alert("数量不能少于1");
-  }
-}
-/* 购物车加号点击事件 */
-function aClick(input, totle, price) {
-  input.value++;
-  totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
 }

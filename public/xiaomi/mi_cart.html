@@ -24,7 +24,7 @@
       </div>
       <div class="topbar">
         <div class="user">
-          <a href="#">123456789</a>
+          <a href="#">登录</a>
         </div>
         <div class="order">
           <a href="#">我的订单</a>
@@ -34,17 +34,25 @@
   </div>
   <div class="main">
     <div class="container">
-      <!-- <div class="cart">
+      <div class="cart" style="display: none;">
         <div class="empty">
           <h2>您的购物车还是空的!</h2>
-          <a href="#"> <button>马上去购物</button></a>
+          <a href="./mi_index.html"> <button>马上去购物</button></a>
         </div>
-      </div> -->
-      <div class="cart_warp">
+      </div>
+      <div class="cart" style="display: none;" id="noLogin">
+        <div class="empty">
+          <h2>您的购物车还是空的!</h2>
+          <p>登录后将显示您之前加入的商品</p>
+          <a href="./mi_login.html"> <button>立即登录</button></a>
+          <a href="./mi_index.html"> <button>马上去购物</button></a>
+        </div>
+      </div>
+      <div class="cart_warp" style="display: block;">
         <table>
           <tr>
             <th>
-              <input type="checkbox" id="all_check">
+              <input type="checkbox" id="all_check" checked>
               <label for="all_check">全选</span>
             </th>
             <th></th>
@@ -55,7 +63,7 @@
             <th>操作</th>
           </tr>
           <tr>
-            <td><input type="checkbox">
+            <td><input type="checkbox" checked>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>
               <a href="#">
@@ -73,82 +81,32 @@
             </td>
             <td class="btn">
               <button class="subtract">-</button>
-              <input type="text" value="3" readonly>
+              <input type="text" value="1" readonly>
               <button class="add">+</button>
             </td>
             <td>
               <span class="totle"></span>
             </td>
             <td class="oper">
-              <a href="#">
-                <i>×</i>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>
-              <a href="#">
-                <img
-                  src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1533264175.2117303.jpg?thumb=1&w=80&h=80">
-              </a>
-            </td>
-            <td style="text-align: left;">
-              <a href="#">
-                <span class="shop_name">15.6 Pro i7 16G 1050MAX-Q 256G</span>
-              </a>
-            </td>
-            <td>
-              <span class="price">5999元</span>
-            </td>
-            <td class="btn">
-              <button class="subtract">-</button>
-              <input type="text" value="3" readonly>
-              <button class="add">+</button>
-            </td>
-            <td>
-              <span class="totle"></span>
-            </td>
-            <td class="oper">
-              <a href="#">
-                <i>×</i>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td><input type="checkbox">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td>
-              <a href="#">
-                <img
-                  src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1533264175.2117303.jpg?thumb=1&w=80&h=80">
-              </a>
-            </td>
-            <td style="text-align: left;">
-              <a href="#">
-                <span class="shop_name">15.6 Pro i7 16G 1050MAX-Q 256G</span>
-              </a>
-            </td>
-            <td>
-              <span class="price">4999元</span>
-            </td>
-            <td class="btn">
-              <button class="subtract">-</button>
-              <input type="text" value="3" readonly>
-              <button class="add">+</button>
-            </td>
-            <td>
-              <span class="totle"></span>
-            </td>
-            <td class="oper">
-              <a href="#">
+              <a href="javascript:" id="close">
                 <i>×</i>
               </a>
             </td>
           </tr>
         </table>
+        <div class="zj">
+          <div class="left">
+            <a href="./mi_index.html">继续购物</a>
+            <span>共<em>1</em>件商品</span>
+            <span>已选择<em>1</em>件商品</span>
+          </div>
+          <div class="right">
+            合计: <span></span>
+            <button>去结算</button>
+          </div>
+        </div>
       </div>
+
       <div class="recommend">
         <h1>为你推荐</h1>
         <div class="list">
@@ -160,9 +118,9 @@
                   style="margin: 20px;">
                 <span style="color:#333">黑鲨游戏 Type-C 耳机</span>
                 <span style="color:#ff7600">99元</span>
-                <span style="color:#757575">5254人</span>
+                <span style="color:#757575">5254人好评</span>
               </a>
-              <button class="add">加入购物车</button>
+              <button class="add" onclick="add()">加入购物车</button>
             </li>
             <li>
               <a href="#">
@@ -171,9 +129,9 @@
                   style="margin: 20px;">
                 <span style="color:#333">黑鲨游戏 Type-C 耳机</span>
                 <span style="color:#ff7600">99元</span>
-                <span style="color:#757575">5254人</span>
+                <span style="color:#757575">5254人好评</span>
               </a>
-              <button class="add">加入购物车</button>
+              <button class="add" onclick="add()">加入购物车</button>
             </li>
             <li>
               <a href="#">
@@ -182,9 +140,9 @@
                   style="margin: 20px;">
                 <span style="color:#333">黑鲨游戏 Type-C 耳机</span>
                 <span style="color:#ff7600">99元</span>
-                <span style="color:#757575">5254人</span>
+                <span style="color:#757575">5254人好评</span>
               </a>
-              <button class="add">加入购物车</button>
+              <button class="add" onclick="add()">加入购物车</button>
             </li>
             <li>
               <a href="#">
@@ -193,9 +151,9 @@
                   style="margin: 20px;">
                 <span style="color:#333">黑鲨游戏 Type-C 耳机</span>
                 <span style="color:#ff7600">99元</span>
-                <span style="color:#757575">5254人</span>
+                <span style="color:#757575">5254人好评</span>
               </a>
-              <button class="add">加入购物车</button>
+              <button class="add" onclick="add()">加入购物车</button>
             </li>
             <li>
               <a href="#">
@@ -204,9 +162,9 @@
                   style="margin: 20px;">
                 <span style="color:#333">黑鲨游戏 Type-C 耳机</span>
                 <span style="color:#ff7600">99元</span>
-                <span style="color:#757575">5254人</span>
+                <span style="color:#757575">5254人好评</span>
               </a>
-              <button class="add">加入购物车</button>
+              <button class="add" onclick="add()">加入购物车</button>
             </li>
             <li>
               <a href="#">
@@ -215,9 +173,9 @@
                   style="margin: 20px;">
                 <span style="color:#333">黑鲨游戏 Type-C 耳机</span>
                 <span style="color:#ff7600">99元</span>
-                <span style="color:#757575">5254人</span>
+                <span style="color:#757575">5254人好评</span>
               </a>
-              <button class="add">加入购物车</button>
+              <button class="add" onclick="add()">加入购物车</button>
             </li>
             <li>
               <a href="#">
@@ -226,9 +184,9 @@
                   style="margin: 20px;">
                 <span style="color:#333">黑鲨游戏 Type-C 耳机</span>
                 <span style="color:#ff7600">99元</span>
-                <span style="color:#757575">5254人</span>
+                <span style="color:#757575">5254人好评</span>
               </a>
-              <button class="add">加入购物车</button>
+              <button class="add" onclick="add()">加入购物车</button>
             </li>
             <li>
               <a href="#">
@@ -237,9 +195,9 @@
                   style="margin: 20px;">
                 <span style="color:#333">黑鲨游戏 Type-C 耳机</span>
                 <span style="color:#ff7600">99元</span>
-                <span style="color:#757575">5254人</span>
+                <span style="color:#757575">5254人好评</span>
               </a>
-              <button class="add">加入购物车</button>
+              <button class="add" onclick="add()">加入购物车</button>
             </li>
             <li>
               <a href="#">
@@ -248,9 +206,9 @@
                   style="margin: 20px;">
                 <span style="color:#333">黑鲨游戏 Type-C 耳机</span>
                 <span style="color:#ff7600">99元</span>
-                <span style="color:#757575">5254人</span>
+                <span style="color:#757575">5254人好评</span>
               </a>
-              <button class="add">加入购物车</button>
+              <button class="add" onclick="add()">加入购物车</button>
             </li>
             <li>
               <a href="#">
@@ -259,9 +217,9 @@
                   style="margin: 20px;">
                 <span style="color:#333">黑鲨游戏 Type-C 耳机</span>
                 <span style="color:#ff7600">99元</span>
-                <span style="color:#757575">5254人</span>
+                <span style="color:#757575">5254人好评</span>
               </a>
-              <button class="add">加入购物车</button>
+              <button class="add" onclick="add()">加入购物车</button>
             </li>
           </ul>
         </div>
@@ -272,48 +230,77 @@
   <!-- 底部 -->
   <footer id="footer"> </footer>
   <script src="./js/jquery.min.js"></script>
-  <script src="./js/footer.js"></script>
+  <script src="./js/components.js"></script>
   <script src="./js/utils.js"></script>
   <script>
     window.onload = function () {
       /* 获取数量下的input标签 */
-      var inputs = document.querySelectorAll(".btn input");
+      var input = document.querySelector(".btn input");
       /* 获取加号按钮*/
-      var adds = document.querySelectorAll(".btn .add");
+      var add = document.querySelector(".btn .add");
       /* 获取减号按钮*/
-      var subtracts = document.querySelectorAll(".btn .subtract");
+      var subtract = document.querySelector(".btn .subtract");
       /* 获取小计*/
-      var totles = document.querySelectorAll(".cart_warp .totle");
+      var totle = document.querySelector(".cart_warp .totle");
       /* 获取价格*/
-      var prices = document.querySelectorAll(".cart_warp .price");
+      var price = document.querySelector(".cart_warp .price");
+      /* 总价格 */
+      var zj = document.querySelector(".zj .right span");
+      var pay = document.querySelector(".zj .right button");
+      var num1 = document.querySelectorAll(".zj .left span em")[0];
+      var num2 = document.querySelectorAll(".zj .left span em")[1];
       /* 给小计一个初始值 */
-      for (var i = 0; i < totles.length; i++) {
-        totles[i].innerHTML = parseInt(inputs[i].value) * parseInt(prices[i].innerHTML) + '元';
-      };
-      // /* 减号点击事件 */
-      // subtract.onclick = function () {
-      //   jClick(input, totle, price);
-      // }
-      // /* 加号点击事件 */
-      // add.onclick = function () {
-      //   aClick(input, totle, price)
-      // }
-      for (var s = 0; s < subtracts.length - 1; s++) {
-        subtracts[s].onclick = function () {
-          if (inputs[s].value > 1) {
-            inputs[s].value--;
-            totles[s].innerHTML = parseInt(inputs[s].value) * parseInt(prices[s].innerHTML) + '元';
-          } else {
-            alert("数量不能少于1");
-          }
+      totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
+      zj.innerHTML = totle.innerHTML;
+      /* 减号点击事件 */
+      subtract.onclick = function () {
+        if (input.value > 1) {
+          input.value--;
+          totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
+          zj.innerHTML = totle.innerHTML;
+          num1.innerHTML = input.value;
+          num2.innerHTML = input.value;
+        } else {
+          alert("数量不能少于1");
         }
       }
+      /* 加号点击事件 */
+      add.onclick = function () {
+        input.value++;
+        totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
+        zj.innerHTML = totle.innerHTML;
+        num1.innerHTML = input.value;
+        num2.innerHTML = input.value;
+      }
+      pay.onclick = function () {
+        alert(`恭喜你付款成功，一共消费${zj.innerHTML}`);
+      }
+    }
 
-      for (var a = 0; a < adds.length - 1; a++) {
-        adds[a].onclick = function () {
-          inputs[a].value++;
-          totles[a].innerHTML = parseInt(inputs[a].value) * parseInt(prices[a].innerHTML) + '元';
+
+    function add() {
+      alert("该功能还未实现,就看看吧!")
+    }
+
+
+    var cart1 = document.querySelector(".cart");
+    var cart2 = document.querySelector(".cart_warp");
+    var cart3 = document.getElementById("noLogin");
+    var close = document.getElementById("close");
+    /* 获取地址栏的query */
+    var search = window.location.search;
+    close.onclick = function () {
+      var result = confirm("确定要删除该商品?");
+      if (result) {
+        if (search != "") {
+          cart2.style.display = "none";
+          cart1.style.display = "block";
+        } else {
+          cart2.style.display = "none";
+          cart3.style.display = "block";
         }
+      } else {
+        alert("删除失败");
       }
     }
   </script>

@@ -65,10 +65,8 @@
       <!-- 右侧 -->
       <div class="right">
         <!-- 基本信息 -->
-        <h2>Redmi K30 5G</h2>
-        <p class="desc">双模5G / 三路并发 / 高通骁龙765G / 7nm 5G低功耗处理器 / 120Hz高帧率流速屏 / 6.67''小孔径全面屏 / 索尼6400万前后六摄 /
-          最高可选8GB+256GB大存储 / 4500mAh+30W快充 / 3D四曲面玻璃机身 / 多功能NFC
-        </p>
+        <h2 id="title"></h2>
+        <p class="desc" id="content"></p>
         <p title="企业名称：小米通讯技术有限公司
         企业执照注册号：91110108558521630L
         企业地址：北京市海淀区西二旗中路33号院6 号楼9层019号
@@ -78,8 +76,8 @@
           class="ziying">
           小米自营</p>
         <div style="margin-bottom: 20px;">
-          <span class="price">1599元</span>
-          <span class="old_price">2299元</span>
+          <span class="price" id="price"></span>
+          <span class="old_price" id="old_price"></span>
         </div>
         <hr>
         <!-- 地址 -->
@@ -96,36 +94,22 @@
           </div>
         </div>
         <!-- 选择版本 -->
-        <div class="edition">
-          <h2>选择版本</h2>
-          <ul class="type">
-            <li class="on"><a href="#">6GB+128GB</a></li>
-            <li><a href="#">8GB+128GB</a></li>
-            <li><a href="#">8GB+256GB</a></li>
-          </ul>
-        </div>
+        <div class="edition" id="edition"></div>
         <!-- 选择颜色 -->
-        <div class="color">
-          <h2>选择颜色</h2>
-          <ul class="type">
-            <li class="on"><a href="#">深海微光</a></li>
-            <li><a href="#">紫玉幻境</a></li>
-            <li><a href="#">时光独白</a></li>
-          </ul>
-        </div>
+        <div class="color" id="color"></div>
         <!-- 意外保护 -->
         <div class="protect">
           <h2>选择小米提供的意外保护</h2>
           <span class="span"><a href="javascript:alert('你在点点！！！')">了解意外保护 ></a></span>
           <ul>
-            <li class="check ">
-              <i><em class="">√</em></i>
+            <li class="check in">
+              <i><em class="on">√</em></i>
               <img src="./img/bao.png">
               <div class="box">
                 <h3>意外保障服务<span>249元</span></h3>
                 <p>手机意外碎屏/进水/碾压等损坏</p>
                 <div>
-                  <i><em class="">√</em></i>
+                  <i><em class="on">√</em></i>
                   <span>我已阅读<a href="#">服务条款|</a><a href="#">常见问题</a></span>
                 </div>
               </div>
@@ -134,8 +118,8 @@
               <i><em>√</em></i>
               <img src="./img/bao.png">
               <div class="box">
-                <h3>碎屏保障服务<span>249元</span></h3>
-                <p>手机意外碎屏/进水/碾压等损坏</p>
+                <h3>碎屏保障服务<span>103元</span></h3>
+                <p>手机意外碎屏</p>
                 <div>
                   <i><em>√</em></i>
                   <span>我已阅读<a href="#">服务条款|</a><a href="#">常见问题</a></span>
@@ -153,8 +137,8 @@
               <i><em class="on">√</em></i>
               <img src="./img/bao.png">
               <div class="box">
-                <h3>意外保障服务<span>249元</span></h3>
-                <p>手机意外碎屏/进水/碾压等损坏</p>
+                <h3>延长保修服务<span>55元</span></h3>
+                <p>厂保延一年，性能故障免费维修</p>
                 <div>
                   <i><em class="on">√</em></i>
                   <span>我已阅读<a href="#">服务条款|</a><a href="#">常见问题</a></span>
@@ -172,8 +156,8 @@
               <i><em class="on">√</em></i>
               <img src="./img/bao.png">
               <div class="box">
-                <h3>意外保障服务<span>249元</span></h3>
-                <p>手机意外碎屏/进水/碾压等损坏</p>
+                <h3>云空间年卡200G<span>159元</span></h3>
+                <p>主商品签收后，自动激活至下单帐号</p>
                 <div>
                   <i><em class="on">√</em></i>
                   <span>我已阅读<a href="#">服务条款|</a><a href="#">常见问题</a></span>
@@ -184,8 +168,8 @@
               <i><em>√</em></i>
               <img src="./img/bao.png">
               <div class="box">
-                <h3>意外保障服务<span>249元</span></h3>
-                <p>手机意外碎屏/进水/碾压等损坏</p>
+                <h3>云空间年卡50G<span>49元</span></h3>
+                <p>主商品签收后，自动激活至下单帐号</p>
                 <div>
                   <i><em>√</em></i>
                   <span>我已阅读<a href="#">服务条款|</a><a href="#">常见问题</a></span>
@@ -196,8 +180,8 @@
               <i><em>√</em></i>
               <img src="./img/bao.png">
               <div class="box">
-                <h3>意外保障服务<span>249元</span></h3>
-                <p>手机意外碎屏/进水/碾压等损坏</p>
+                <h3>云空间月卡200G<span>1元</span></h3>
+                <p>主商品签收后，自动激活至下单帐号</p>
                 <div>
                   <i><em>√</em></i>
                   <span>我已阅读<a href="#">服务条款|</a><a href="#">常见问题</a></span>
@@ -208,8 +192,8 @@
               <i><em>√</em></i>
               <img src="./img/bao.png">
               <div class="box">
-                <h3>意外保障服务<span>249元</span></h3>
-                <p>手机意外碎屏/进水/碾压等损坏</p>
+                <h3>云空间月卡50G<span>6元</span></h3>
+                <p>主商品签收后，自动激活至下单帐号</p>
                 <div>
                   <i><em>√</em></i>
                   <span>我已阅读<a href="#">服务条款|</a><a href="#">常见问题</a></span>
@@ -222,10 +206,10 @@
         <div class="calc">
           <ul>
             <li>
-              <span>Redmi K30 5G 8GB+128GB 深海微光</span>
+              <span id="shop_name"></span>
               <div>
-                <span>1799元</span>
-                <del>2599元</del>
+                <span id="money"></span>
+                <del id="old_money"></del>
               </div>
             </li>
             <li>
@@ -233,7 +217,6 @@
               <div>
                 <span>249元</span>
               </div>
-
             </li>
             <li>
               <span>延长保修服务</span>
@@ -251,12 +234,12 @@
             </li>
           </ul>
           <div class="total">
-            总计: <span>1700元</span>
+            总计: <span></span>
           </div>
         </div>
         <!-- 加入购物车 -->
         <div class="btns">
-          <button id="add">加入购物车</button>
+          <button id="add" onclick="add()">加入购物车</button>
           <button id="like">喜欢</button>
         </div>
         <!-- 其他信息 -->
@@ -306,12 +289,46 @@
   <script>
     var search = window.location.search;
     /* 获取详情 */
-    ajax("get", `/Mi/details`, isSuccess, search.slice(1));
+    ajax("get", `/Mi/details`, isSuccess, search.slice(5, 7));
 
     function isSuccess(result) {
+      var title = document.getElementById("title");
+      var content = document.getElementById("content");
+      var price = document.getElementById("price");
+      var old_price = document.getElementById("old_price");
+      var edition = document.getElementById("edition");
+      var color = document.getElementById("color");
+      var shop_name = document.getElementById("shop_name");
+      var money = document.getElementById("money");
+      var old_money = document.getElementById("old_money");
+      var total = document.querySelector(".total span");
       if (result.length > 0) {
-        details = JSON.parse(result);
+        var details = JSON.parse(result)[0];
         console.log(details);
+        title.innerHTML = details.title;
+        content.innerHTML = details.content;
+        old_price.innerHTML = details.price.toFixed(2) + '元';
+        price.innerHTML = (parseInt(old_price.innerHTML) * 0.9).toFixed(2) + '元';
+        edition.innerHTML = `
+          <h2>选择版本</h2>
+            <ul class="type">
+              <li class="on"><a href="#">${details.edition[0]}</a></li>
+              <li><a href="#">${details.edition[1]}</a></li>
+              <li><a href="#">${details.edition[2]}</a></li>
+            </ul>
+        `;
+        color.innerHTML = `
+          <h2>选择颜色</h2>
+            <ul class="type">
+              <li class="on"><a href="#">${details.color[0]}</a></li>
+              <li><a href="#">${details.color[1]}</a></li>
+              <li><a href="#">${details.color[2]}</a></li>
+            </ul>
+        `;
+        shop_name.innerHTML = `${details.title} ${details.edition[0]} ${details.color[0]}`;
+        old_money.innerHTML = details.price.toFixed(2) + '元';
+        money.innerHTML = (parseInt(old_price.innerHTML) * 0.9).toFixed(2) + '元';
+        total.innerHTML = (parseFloat(money.innerHTML) + 249 + 55 + 159).toFixed(2) + "元";
       } else {
         console.log("加载失败");
       }
@@ -324,6 +341,10 @@
     //     this.classList.add('in');
     //   }
     // }
+    function add() {
+      alert("该功能还未实现,就看看吧!")
+      location.href = `mi_cart.html`;
+    }
   </script>
   <script>
     /* 导航栏固定 */

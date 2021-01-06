@@ -68,8 +68,9 @@ route.get("/details/:pid", (req, res) => {
   var sql = "select * from xm_index_product where pid=?";
   pool.query(sql, [req.params.pid], (err, result) => {
     if (err) throw err;
-    console.log(result);
     if (result.length > 0) {
+      result[0].color = result[0].color.split(",");
+      result[0].edition = result[0].edition.split(",");
       res.send(result);
     } else {
       res.send("0");

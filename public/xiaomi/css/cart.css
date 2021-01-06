@@ -100,6 +100,13 @@ li {
 .cart .empty h2 {
   font-size: 36px;
   color: #b0b0b0;
+  margin-bottom: 25px;
+}
+
+.cart .empty p {
+  margin: 0;
+  font-size: 20px;
+  color: #b0b0b0;
 }
 
 .cart .empty button {
@@ -110,6 +117,14 @@ li {
   border: 0;
   color: #fff;
   cursor: pointer;
+  margin-top: 20px;
+}
+
+.cart .empty a:last-child button {
+  background-color: #fff;
+  border: 1px solid #ff7600;
+  color: #ff7600;
+  margin-left: 10px;
 }
 
 /* 购物车的内容 */
@@ -135,6 +150,7 @@ li {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 /* 数量 */
 .cart_warp table .btn {
   width: 170px;
@@ -157,11 +173,13 @@ li {
   background: #fff;
   cursor: pointer;
 }
+
 /* 小计 */
 .cart_warp table .totle {
   display: inline-block;
   width: 80px;
 }
+
 /* 操作 */
 .cart_warp table .oper a:hover {
   display: inline-block;
@@ -182,6 +200,44 @@ li {
   color: #757575;
 }
 
+.cart_warp .zj {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.zj .left a {
+  color: #757575;
+  margin: 0 20px;
+  line-height: 50px;
+}
+.zj .left span{
+  padding-left: 20px;
+  color: #757575;
+}
+.zj .left span em{
+  font-style: normal;
+  color: #ff7600;
+  padding: 0 5px;
+}
+.zj .right{
+  color: #ff7600;
+}
+.zj .right span{
+  font-size: 26px;
+}
+.zj .right button{
+  width: 200px;
+  height: 50px;
+  background-color: #ff7600;
+  outline: none;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  margin-left: 50px;
+  cursor: pointer;
+}
 /* 推荐 */
 .recommend {
   width: 100%;
