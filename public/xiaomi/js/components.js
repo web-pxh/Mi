@@ -4,9 +4,13 @@ $(function () {
     type: "get",
     success: function (result) {
       $(result).replaceAll("#header");
+      var name = $("#name_hid").val();
+      if (name) {
+        $("#login").html(name);
+        $("#login").attr('href', '#');
+        $("#login").parent().next().remove();
+      }
       $(`<link rel="stylesheet" href="./css/header.css">`).appendTo("head");
-      var login = document.getElementById("header");
-      console.log(login);
     }
   })
 });

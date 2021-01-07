@@ -18,7 +18,7 @@ route.get("/swiper", (req, res) => {
 });
 //首页商品列表
 route.get("/index/list", (req, res) => {
-  var sql = "select * from xm_index_product";
+  var sql = "select * from xm_product";
   pool.query(sql, (err, result) => {
     if (err) throw err;
     if (result.length > 0) {
@@ -65,7 +65,7 @@ route.get("/index/list", (req, res) => {
 });
 //根据商品id获取商品详细信息
 route.get("/details/:pid", (req, res) => {
-  var sql = "select * from xm_index_product where pid=?";
+  var sql = "select * from xm_product where pid=?";
   pool.query(sql, [req.params.pid], (err, result) => {
     if (err) throw err;
     if (result.length > 0) {

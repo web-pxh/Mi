@@ -12,10 +12,6 @@ li {
   display: inline-block;
 }
 
-/* 头部 */
-.iframe_header {
-  width: 100%;
-}
 
 /* 导航栏 */
 .nav-bar {
@@ -474,10 +470,4 @@ li {
 width: 20px;
 height: 20px;
 margin-right: 3px;
-}
-
-/* 底部 */
-.iframe_footer {
-  width: 100%;
-  height: 640px;
 }

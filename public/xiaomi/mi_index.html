@@ -546,6 +546,8 @@
   <nav id="bar"></nav>
   <!-- 底部 -->
   <footer id="footer"></footer>
+  <!--  -->
+  <input type="hidden" value="" id="name_hid">
 
 
   <!-- 引入工具类 -->
@@ -555,16 +557,10 @@
   <script src="./js/components.js"></script>
   <script>
     window.onload = function () {
-      var a = document.getElementById('aaa');
-      console.log(a);
-      console.log(11111);
       /* 用户名 */
       var search = window.location.search;
-      var login = document.getElementById("header");
-      // console.log(login);
       if (search) {
-        login.innerHTML = search.slice(1);
-        login.href = "#";
+        $("#name_hid").val(search.slice(1));
       }
       /* 倒计时 */
       hour.innerHTML = countDown().hour + ':00 场';
@@ -705,6 +701,7 @@
           getData(periphery, peripherylis, search);
         }
       };
+      console.log(window.localStorage.getItem("name"));
     };
   </script>
   <script>
