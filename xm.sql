@@ -11,11 +11,38 @@
  Target Server Version : 100128
  File Encoding         : 65001
 
- Date: 08/01/2021 15:42:10
+ Date: 08/01/2021 18:58:48
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for xm_active
+-- ----------------------------
+DROP TABLE IF EXISTS `xm_active`;
+CREATE TABLE `xm_active`  (
+  `aid` int NOT NULL AUTO_INCREMENT,
+  `img` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '图片地址',
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标题',
+  `details` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '首页的详情',
+  `price` decimal(10, 2) NULL DEFAULT NULL COMMENT '价格',
+  PRIMARY KEY (`aid`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of xm_active
+-- ----------------------------
+INSERT INTO `xm_active` VALUES (1, '//cdn.cnbj1.fds.api.mi-img.com/mi-mall/8070925c6ba4d476392499454b973ff8.png', '小米移动电源3 10000mAh超级闪充版（50W）​ 黑色', '大容量，超级闪充', 249.00);
+INSERT INTO `xm_active` VALUES (2, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/730055892c1afa7b6d8128c0938b5277.png', '日常元素抽纸 青春版 24包/箱', '精选原生竹浆，健康环保', 32.90);
+INSERT INTO `xm_active` VALUES (3, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ef7b6af7926b7b44da1343e144a8f801.png', '米家护颈记忆绵枕 灰色', '高低曲线承托，睡眠更自在', 99.00);
+INSERT INTO `xm_active` VALUES (4, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f607feb5f31aa04949d530799d010d99.png', 'RedmiBook 16 i5 16G 512G MX350 灰色', '便携大屏，全“芯”超越', 4999.00);
+INSERT INTO `xm_active` VALUES (5, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b942792b6d1edc16d2fb2cb317dc60a9.png', '米兔儿童电话手表4C 蓝色', '能视频通话的4G电话手表', 399.00);
+INSERT INTO `xm_active` VALUES (6, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3bc5d325cca5bf07fe25dfed3d562239.png', 'Redmi智能电视A32 黑色 32英寸', '陪伴美好时光', 899.00);
+INSERT INTO `xm_active` VALUES (7, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4341891528452ee712596b4ed7347532.png', '米家滚筒洗烘一体机1A 8kg 白色', '智能烘干，即洗即穿', 1999.00);
+INSERT INTO `xm_active` VALUES (8, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/73ad2ee391116c584afc98861b30509b.png', '小米盒子4 SE套装版', '人工智能机顶盒+小米高清数据线', 189.00);
+INSERT INTO `xm_active` VALUES (9, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0c7748338e22822f2e900363dafad666.png', '米兔儿童滑板车 粉', '安全好玩的酷玩具', 249.00);
+INSERT INTO `xm_active` VALUES (10, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b8c042faa7a3c5cd887a8f20333f55c0.png?', '米家吸顶灯 卧室吸顶灯350', '开启全屋智能照明时代', 249.00);
 
 -- ----------------------------
 -- Table structure for xm_product
