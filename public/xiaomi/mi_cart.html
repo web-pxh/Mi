@@ -24,7 +24,7 @@
       </div>
       <div class="topbar">
         <div class="user">
-          <a href="#">登录</a>
+          <a href="./mi_login.html">登录</a>
         </div>
         <div class="order">
           <a href="#">我的订单</a>
@@ -275,6 +275,11 @@
       pay.onclick = function () {
         alert(`恭喜你付款成功，一共消费${zj.innerHTML}`);
       }
+      var login = document.querySelector(".topbar .user a");
+      if (uname) {
+        login.innerHTML = uname;
+        login.href = "#";
+      }
     }
 
 
@@ -282,17 +287,16 @@
       alert("该功能还未实现,就看看吧!")
     }
 
-
     var cart1 = document.querySelector(".cart");
     var cart2 = document.querySelector(".cart_warp");
     var cart3 = document.getElementById("noLogin");
     var close = document.getElementById("close");
-    /* 获取地址栏的query */
-    var search = window.location.search;
+    /* 获取缓存中的用户名 */
+    var uname = window.sessionStorage.getItem("name");
     close.onclick = function () {
       var result = confirm("确定要删除该商品?");
       if (result) {
-        if (search != "") {
+        if (uname != null) {
           cart2.style.display = "none";
           cart1.style.display = "block";
         } else {

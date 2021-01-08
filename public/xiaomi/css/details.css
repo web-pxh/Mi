@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -55,10 +60,6 @@ li {
 .nav-bar .left .active {
   font-size: 18px;
   color: #424242;
-}
-
-.nav-bar .left a:not(:last-child) {
-  border-right: 1px solid #999;
 }
 
 /* 右侧 */
@@ -180,7 +181,6 @@ li {
 .details .right {
   float: right;
   width: 50%;
-  height: 500px;
   padding-top: 30px;
 }
 
@@ -456,7 +456,8 @@ li {
   flex-wrap: wrap;
   align-content: space-around;
 }
-.sale-info ul li{
+
+.sale-info ul li {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -466,8 +467,9 @@ li {
   line-height: 42px;
   margin-right: 10px;
 }
-.sale-info ul li img{
-width: 20px;
-height: 20px;
-margin-right: 3px;
+
+.sale-info ul li img {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
 }

@@ -111,19 +111,19 @@
       <div class="sub">
         <div class="span">
           <ul>
-            <li><a href="#"><img src="./img/xmms.png"><span>小米秒杀</span></a></li>
-            <li><a href="#"><img src="./img/qytg.png"><span>企业团购</span></a></li>
-            <li><a href="#"><img src="./img/fmtd.png"><span>F码通道</span></a></li>
-            <li><a href="#"><img src="./img/mfk.png"><span>米粉卡</span></a></li>
-            <li><a href="#"><img src="./img/yjhx.png"><span>以旧换新</span></a></li>
-            <li><a href="#"><img src="./img/hfcz.png"><span>话费充值</span></a></li>
+            <li><a href="javascript:"><img src="./img/xmms.png"><span>小米秒杀</span></a></li>
+            <li><a href="javascript:"><img src="./img/qytg.png"><span>企业团购</span></a></li>
+            <li><a href="javascript:"><img src="./img/fmtd.png"><span>F码通道</span></a></li>
+            <li><a href="javascript:"><img src="./img/mfk.png"><span>米粉卡</span></a></li>
+            <li><a href="javascript:"><img src="./img/yjhx.png"><span>以旧换新</span></a></li>
+            <li><a href="javascript:"><img src="./img/hfcz.png"><span>话费充值</span></a></li>
           </ul>
         </div>
         <div class="span1">
           <ul>
-            <li><a href="./mi_details.html" target="_blank"><img src="./img/pic4.jpg"></a></li>
-            <li><a href="./mi_details.html" target="_blank"><img src="./img/pic2.jpg"></a></li>
-            <li><a href="./mi_details.html" target="_blank"><img src="./img/pic3.jpg"></a></li>
+            <li><a href="javascript:"><img src="./img/pic4.jpg"></a></li>
+            <li><a href="javascript:"><img src="./img/pic2.jpg"></a></li>
+            <li><a href="javascript:"><img src="./img/pic3.jpg"></a></li>
           </ul>
         </div>
       </div>
@@ -156,80 +156,23 @@
           <!-- 列表 -->
           <div class="list" id="slide_list">
             <ul style="left: 0;">
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic5.webp">
-                    <h3>小米笔记本Air 12.5" 2019款 8代M3 4G 128G</h3>
-                    <p class="desc">像杂志一样随身携带</p>
-                    <p>
-                      <span>3299元</span>
-                      <del style="color:#b0b0b0">3599元</del>
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic5.webp">
-                    <h3>小米笔记本Air 12.5" 2019款 8代M3 4G 128G</h3>
-                    <p class="desc">像杂志一样随身携带</p>
-                    <p>
-                      <span>3299元</span>
-                      <del style="color:#b0b0b0">3599元</del>
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic5.webp">
-                    <h3>小米笔记本Air 12.5" 2019款 8代M3 4G 128G</h3>
-                    <p class="desc">像杂志一样随身携带</p>
-                    <p>
-                      <span>3299元</span>
-                      <del style="color:#b0b0b0">3599元</del>
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic5.webp">
-                    <h3>小米笔记本Air 12.5" 2019款 8代M3 4G 128G</h3>
-                    <p class="desc">像杂志一样随身携带</p>
-                    <p>
-                      <span>3299元</span>
-                      <del style="color:#b0b0b0">3599元</del>
-                    </p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="content">
-                    <img src="./img/pic5.webp">
-                    <h3>小米笔记本Air 12.5" 2019款 8代M3 4G 128G</h3>
-                    <p class="desc">像杂志一样随身携带</p>
-                    <p>
-                      <span>3299元</span>
-                      <del style="color:#b0b0b0">3599元</del>
-                    </p>
-                  </div>
-                </a>
-              </li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
             </ul>
           </div>
         </div>
         <!-- 左右切换 -->
         <div class="btn">
           <button id="left">&lt;</button>
-          <!-- </span> -->
           <button id="right">&gt;</button>
-          <!-- </span> -->
         </div>
       </div>
       <!-- 手机 -->
@@ -546,7 +489,7 @@
   <nav id="bar"></nav>
   <!-- 底部 -->
   <footer id="footer"></footer>
-  <!--  -->
+  <!-- 隐藏域,用于获取用户名 -->
   <input type="hidden" value="" id="name_hid">
 
 
@@ -558,9 +501,9 @@
   <script>
     window.onload = function () {
       /* 用户名 */
-      var search = window.location.search;
-      if (search) {
-        $("#name_hid").val(search.slice(1));
+      var uname = window.sessionStorage.getItem("name");
+      if (uname) {
+        $("#name_hid").val(uname);
       }
       /* 倒计时 */
       hour.innerHTML = countDown().hour + ':00 场';
@@ -607,6 +550,7 @@
       left.onclick = function () {
         lClick(slide_listul, ulwidth, right, left);
       }
+
 
       /* 楼层滚动 */
       /* 获取主要内容这个大的div */
@@ -672,9 +616,11 @@
       var collocationlis = document.querySelectorAll(".main-box5 .item li");
       var partslis = document.querySelectorAll(".main-box6 .item li");
       var peripherylis = document.querySelectorAll(".main-box7 .item li");
+      var slide_listLi = document.querySelectorAll("#slide_list ul li");
 
       /* 发送请求 */
       ajax("get", `/Mi/index/list`, isListShow);
+      ajax("get", `/Mi/index/active`, isActive);
 
       /* 回调函数 */
       function isListShow(result) {
@@ -692,16 +638,36 @@
           var parts = info[4];
           /*  周边*/
           var periphery = info[5];
-
-          getData(phone, phonelis, search);
-          getData(houes, houeslis, search);
-          getData(intelligence, intelligencelis, search);
-          getData(collocation, collocationlis, search);
-          getData(parts, partslis, search);
-          getData(periphery, peripherylis, search);
+          /* 使用utils中封装的方法 */
+          getData(phone, phonelis);
+          getData(houes, houeslis);
+          getData(intelligence, intelligencelis);
+          getData(collocation, collocationlis);
+          getData(parts, partslis);
+          getData(periphery, peripherylis);
         }
       };
-      console.log(window.localStorage.getItem("name"));
+
+      function isActive(result) {
+        if (result.length > 0) {
+          var actArr = JSON.parse(result);
+          for (var i = 0; i < actArr.length; i++) {
+            slide_listLi[i].innerHTML = `
+              <a href="javascript:alert('页面暂时不存在')">
+                <div class="content">
+                  <img src=${actArr[i].img}>
+                  <h3>${actArr[i].title}</h3>
+                  <p class="desc">${actArr[i].details}</p>
+                  <p>
+                    <span>${(actArr[i].price*0.8).toFixed(2)}元</span>
+                    <del style="color:#b0b0b0">${actArr[i].price.toFixed(2)}元</del>
+                  </p>
+                </div>
+              </a>
+            `
+          }
+        }
+      }
     };
   </script>
   <script>
@@ -789,7 +755,7 @@
 
     /* 获取轮播图片 */
     /* 调用ajax函数 */
-    ajax("get", `/Mi/swiper`, issuccess);
+    ajax("get", `/Mi/index/swiper`, issuccess);
     /* 回调函数 */
     function issuccess(result) {
       if (result.length > 0) {

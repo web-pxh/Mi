@@ -63,7 +63,7 @@ function lClick(slide_listul, ulwidth, right, left) {
   }
 }
 /* 获取首页列表数据 */
-function getData(msg, msgLi, search) {
+function getData(msg, msgLi) {
   for (var i = 0; i < msg.length; i++) {
     msgLi[i].innerHTML = `
       <a href="./mi_details.html?pid=${msg[i].pid}" target='_blank'>

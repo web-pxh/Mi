@@ -18,18 +18,16 @@
     <div class="container all">
       <!-- 左侧 -->
       <div class="left">
-        <a href="#" class="active">Redmi K30 5G</a>
-        <a href="#">Redmi K30 4G</a>
-        <a href="#">Redmi K30i</a>
+        <a href="javascript:" class="active"></a>
       </div>
       <!-- 右侧 -->
       <div class="right">
         <ul>
-          <li><a href="#">概述</a></li>
-          <li><a href="#">参数</a></li>
-          <li><a href="#">F码通道</a></li>
-          <li><a href="#">咨询客服</a></li>
-          <li><a href="#">用户评价</a></li>
+          <li><a href="javascript:">概述</a></li>
+          <li><a href="javascript:">参数</a></li>
+          <li><a href="javascript:">F码通道</a></li>
+          <li><a href="javascript:">咨询客服</a></li>
+          <li><a href="javascript:">用户评价</a></li>
         </ul>
       </div>
     </div>
@@ -42,9 +40,9 @@
         <div class="swiper">
           <ul class="list" id="list">
             <!-- 轮播图片 -->
-            <li><img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1575882211.1223535.jpg"></li>
-            <li class="on"><img
-                src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1575882211.12343127.jpg" /></li>
+            <li class="on"><img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1575882211.1223535.jpg">
+            </li>
+            <li><img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1575882211.12343127.jpg" /></li>
             <li><img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1575882211.215180.jpg"></li>
             <li><img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1575882211.12354336.jpg"></li>
             <li><img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1575882211.1241624.jpg"></li>
@@ -281,17 +279,27 @@
   </div>
   <!-- 底部 -->
   <footer id="footer"> </footer>
+  <!-- 右侧的导航栏 -->
+  <nav id="bar"></nav>
+  <input type="hidden" value="" id="name_hid">
+
 
 
   <script src="./js/jquery.min.js"></script>
   <script src="./js/components.js"></script>
   <script src="./js/request.js"></script>
   <script>
-    var search = window.location.search;
+    /* 用户名 */
+    var uname = window.sessionStorage.getItem("name");
+    if (uname) {
+      $("#name_hid").val(uname);
+    }
     /* 获取详情 */
+    var search = window.location.search;
     ajax("get", `/Mi/details`, isSuccess, search.slice(5, 7));
 
     function isSuccess(result) {
+      /* 获取各个元素 */
       var title = document.getElementById("title");
       var content = document.getElementById("content");
       var price = document.getElementById("price");
@@ -302,10 +310,13 @@
       var money = document.getElementById("money");
       var old_money = document.getElementById("old_money");
       var total = document.querySelector(".total span");
+      var topbar_name = document.querySelector(".nav-bar .left a");
       if (result.length > 0) {
         var details = JSON.parse(result)[0];
         console.log(details);
+        /* 替换其中的内容 */
         title.innerHTML = details.title;
+        topbar_name.innerHTML = details.title;
         content.innerHTML = details.content;
         old_price.innerHTML = details.price.toFixed(2) + '元';
         price.innerHTML = (parseInt(old_price.innerHTML) * 0.9).toFixed(2) + '元';
@@ -333,14 +344,7 @@
         console.log("加载失败");
       }
     }
-    // var bh = document.querySelector(".protect");
-    // var bhLi = bh.querySelectorAll("ul li");
 
-    // for (var i = 0; i < bhLi.length; i++) {
-    //   bhLi[i].onclick = function () {
-    //     this.classList.add('in');
-    //   }
-    // }
     function add() {
       alert("该功能还未实现,就看看吧!")
       location.href = `mi_cart.html`;
@@ -367,6 +371,12 @@
       } else if (scroollTop < nav_offSetTop) {
         //当滚动条滚动高度<导航栏高度时，返回原来位置
         nav.style.position = "static";
+      }
+      /* 右侧导航栏回到顶部 */
+      if (scroollTop > 1000) {
+        toTop.style.visibility = "visible";
+      } else {
+        toTop.style.visibility = "hidden";
       }
     }
     /* 实现轮播功能 */
