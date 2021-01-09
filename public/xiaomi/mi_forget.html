@@ -44,6 +44,10 @@
       margin-bottom: 10px;
     }
 
+    .upwd {
+      display: none;
+    }
+
     .input p {
       display: none;
       width: 310px;
@@ -113,8 +117,9 @@
       <h5>请输入注册的邮箱地址、手机号码或小米帐号：</h5>
     </div>
     <div class="input">
-      <input type="text" placeholder="邮箱/手机号码/小米帐号">
-      <p>请输入账号</p>
+      <input type="text" placeholder="邮箱/手机号码/小米帐号" class="uname">
+      <input type="text" placeholder="请输入新的密码" class="upwd">
+      <p>111</p>
     </div>
     <button id="btn">重置</button>
 
@@ -140,6 +145,42 @@
       -京ICP证110507号
     </p>
   </div>
+  <script src="./js/request.js"></script>
+  <script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+      var uname = document.querySelector(".uname");
+      var upwd = document.querySelector(".upwd");
+      var uname_span = document.querySelector(".input p");
+      if (!uname.value) {
+        uname_span.style.display = "block";
+        uname_span.innerHTML = "请输入用户名";
+        return;
+      }
+      ajax("get", `/Mi/exist`, isexist, `${uname.value}`);
+
+      function isexist(result) {
+        if (result == 0) {
+          uname_span.style.display = "block";
+          uname_span.innerHTML = "用户名不存在";
+        } else {
+          var obj = JSON.parse(result);
+          uname.style.display = "none";
+          upwd.style.display = "block";
+          // var formdata = `upwd=${uname.value}&uid=${obj.uid}`
+          // ajax("post", `/Mi/changeupwd`, isUpdate, formdata);
+
+          // function isUpdate() {
+          //   if (result == 1) {
+          //     alert("修改成功");
+          //   } else {
+          //     alert("修改失败");
+          //   }
+          // }
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>

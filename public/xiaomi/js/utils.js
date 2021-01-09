@@ -77,3 +77,14 @@ function getData(msg, msgLi) {
       `;
   }
 }
+/*  首页tab切换*/
+function tabChange(tab) {
+  for (var item of tab) {
+    item.onmouseover = function () {
+      for (var j = 0; j < tab.length; j++) {
+        tab[j].className = '';
+      }
+      this.className = 'act';
+    }
+  }
+}

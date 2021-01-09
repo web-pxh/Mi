@@ -71,7 +71,12 @@ route.get("/details/:pid", (req, res) => {
     if (result.length > 0) {
       result[0].color = result[0].color.split(",");
       result[0].edition = result[0].edition.split(",");
-      res.send(result);
+      sql = "select * from xm_product_swiper where pid=?";
+      pool.query(sql, [req.params.pid], (err1, result1) => {
+        if (err1) throw err1;
+        result[0].img = result1;
+        res.send(result);
+      })
     } else {
       res.send("0");
     }
