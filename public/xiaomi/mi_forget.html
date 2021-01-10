@@ -35,16 +35,18 @@
       font-weight: normal;
     }
 
-    .input input {
+    .input .uname,.input .upwd {
+      display: block;
       width: 310px;
       height: 40px;
       line-height: 40px;
       padding: 10px;
       outline: none;
-      margin-bottom: 10px;
+      /* margin-bottom: 10px; */
+      margin: 10px auto;
     }
 
-    .upwd {
+    .input .upwd {
       display: none;
     }
 
@@ -119,7 +121,7 @@
     <div class="input">
       <input type="text" placeholder="邮箱/手机号码/小米帐号" class="uname">
       <input type="text" placeholder="请输入新的密码" class="upwd">
-      <p>111</p>
+      <p></p>
     </div>
     <button id="btn">重置</button>
 

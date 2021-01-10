@@ -63,7 +63,7 @@
             <th>操作</th>
           </tr>
           <tr>
-            <td><input type="checkbox" checked>
+            <td><input type="checkbox" checked class="check">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>
               <a href="#">
@@ -85,7 +85,38 @@
               <button class="add">+</button>
             </td>
             <td>
-              <span class="totle"></span>
+              <span class="totle">6999元</span>
+            </td>
+            <td class="oper">
+              <a href="javascript:" id="close">
+                <i>×</i>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" checked class="check">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+              <a href="#">
+                <img
+                  src="http://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1533264175.2117303.jpg?thumb=1&w=80&h=80">
+              </a>
+            </td>
+            <td style="text-align: left;">
+              <a href="#">
+                <span class="shop_name">15.6 Pro i7 16G 1050MAX-Q 256G</span>
+              </a>
+            </td>
+            <td>
+              <span class="price">6999元</span>
+            </td>
+            <td class="btn">
+              <button class="subtract">-</button>
+              <input type="text" value="1" readonly>
+              <button class="add">+</button>
+            </td>
+            <td>
+              <span class="totle">6999元</span>
             </td>
             <td class="oper">
               <a href="javascript:" id="close">
@@ -97,8 +128,8 @@
         <div class="zj">
           <div class="left">
             <a href="./mi_index.html">继续购物</a>
-            <span>共<em>1</em>件商品</span>
-            <span>已选择<em>1</em>件商品</span>
+            <span>共<em></em>件商品</span>
+            <span>已选择<em></em>件商品</span>
           </div>
           <div class="right">
             合计: <span></span>
@@ -234,79 +265,108 @@
   <script src="./js/utils.js"></script>
   <script>
     window.onload = function () {
-      // /* 获取数量下的input标签 */
-      // // var inputs = document.querySelectorAll(".btn input");
-      // /* 获取所有按钮*/
-      // var btns = document.querySelectorAll(".btn button");
-      // /* 获取小计*/
-      // // var totles = document.querySelectorAll(".cart_warp .totle");
-      // /* 获取价格*/
-      // var price = document.querySelector(".cart_warp .price");
-      // /* 总价格 */
-      // var zj = document.querySelector(".zj .right span");
-      // var pay = document.querySelector(".zj .right button");
-      // var num1 = document.querySelectorAll(".zj .left span em")[0];
-      // var num2 = document.querySelectorAll(".zj .left span em")[1];
-      // /* 给小计一个初始值 */
-      // // totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
-      // // zj.innerHTML = totle.innerHTML;
-      // /* 点击事件 */
-      // for (var item of btns) {
-      //   item.onclick = function () {
-      //     var input = this.parentElement.children[1];
-      //     var price = this.parentElement.previousElementSibling.children[0];
-      //     var totle = this.parentElement.nextElementSibling.children[0];
-      //     var zj = document.querySelector(".zj .right span");
-      //     if (this.innerHTML == "+") {
-      //       input.value++;
-      //       totle.innerHTML = input.value * parseFloat(price.innerHTML) + "元";
-      //     } else if (input.value > 1) {
+      /* 获取所有input标签 */
+      var inputs = document.querySelectorAll(".btn input");
+      /* 获取所有按钮*/
+      var btns = document.querySelectorAll(".btn button");
+      /* 获取小计*/
+      var totles = document.querySelectorAll(".cart_warp .totle");
+      /* 获取多选框 */
+      var checks = document.querySelectorAll(".cart_warp .check");
+      /* 总价格 */
+      var zj = document.querySelector(".zj .right span");
+      var pay = document.querySelector(".zj .right button");
+      /* 总数量 */
+      var num1 = document.querySelectorAll(".zj .left span em")[0];
+      /* 选中的总数量 */
+      var num2 = document.querySelectorAll(".zj .left span em")[1];
+      /* 存储总价格 */
+      var sum = 0;
+      for (var i = 0; i < totles.length; i++) {
+        sum += parseFloat(totles[i].innerHTML)
+      }
+      zj.innerHTML = sum + '元';
+      /* 存储总数量 */
+      var sum1 = 0;
+      inputs.forEach(i => {
+        sum1 += parseInt(i.value);
+      });
+      num1.innerHTML = sum1;
+      num2.innerHTML = sum1;
+      /* 存储选中的总数量 */
+      // var sum2 = 0;
+      // checks.forEach((i,key) => {
+      //   if (i.checked == true) {
+      //     sum2 += parseInt(inputs[key].value);
+      //   }
+      // });
+      /* 点击事件 */
+      for (var item of btns) {
+        item.onclick = function () {
+          var input = this.parentElement.children[1];
+          var price = this.parentElement.previousElementSibling.children[0];
+          var totle = this.parentElement.nextElementSibling.children[0];
+          if (this.innerHTML == "+") {
+            input.value++;
+            totle.innerHTML = input.value * parseFloat(price.innerHTML) + "元";
+          } else if (input.value > 1) {
+            input.value--;
+            totle.innerHTML = input.value * parseFloat(price.innerHTML) + "元";
+          } else {
+            alert("数量不能少于1");
+          }
+          var sum2 = 0;
+          totles.forEach(i => {
+            sum2 += parseFloat(i.innerHTML);
+          });
+          zj.innerHTML = sum2 + "元";
+          var sum3 = 0;
+          inputs.forEach(i => {
+            sum3 += parseInt(i.value);
+          });
+          num1.innerHTML = sum3;
+          num2.innerHTML = sum3;
+        }
+      }
+
+      //   /* 获取数量下的input标签 */
+      //   var input = document.querySelector(".btn input");
+      //   /* 获取加号按钮*/
+      //   var add = document.querySelector(".btn .add");
+      //   /* 获取减号按钮*/
+      //   var subtract = document.querySelector(".btn .subtract");
+      //   /* 获取小计*/
+      //   var totle = document.querySelector(".cart_warp .totle");
+      //   /* 获取价格*/
+      //   var price = document.querySelector(".cart_warp .price");
+      //   /* 总价格 */
+      //   var zj = document.querySelector(".zj .right span");
+      //   var pay = document.querySelector(".zj .right button");
+      //   var num1 = document.querySelectorAll(".zj .left span em")[0];
+      //   var num2 = document.querySelectorAll(".zj .left span em")[1];
+      //   /* 给小计一个初始值 */
+      //   totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
+      //   zj.innerHTML = totle.innerHTML;
+      //   /* 减号点击事件 */
+      //   subtract.onclick = function () {
+      //     if (input.value > 1) {
       //       input.value--;
-      //       totle.innerHTML = input.value * parseFloat(price.innerHTML) + "元";
+      //       totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
+      //       zj.innerHTML = totle.innerHTML;
+      //       num1.innerHTML = input.value;
+      //       num2.innerHTML = input.value;
       //     } else {
       //       alert("数量不能少于1");
       //     }
       //   }
+      //   /* 加号点击事件 */
+      //   add.onclick = function () {
+      //     input.value++;
+      //     totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
+      //     zj.innerHTML = totle.innerHTML;
+      //     num1.innerHTML = input.value;
+      //     num2.innerHTML = input.value;
       // }
-
-      /* 获取数量下的input标签 */
-      var input = document.querySelector(".btn input");
-      /* 获取加号按钮*/
-      var add = document.querySelector(".btn .add");
-      /* 获取减号按钮*/
-      var subtract = document.querySelector(".btn .subtract");
-      /* 获取小计*/
-      var totle = document.querySelector(".cart_warp .totle");
-      /* 获取价格*/
-      var price = document.querySelector(".cart_warp .price");
-      /* 总价格 */
-      var zj = document.querySelector(".zj .right span");
-      var pay = document.querySelector(".zj .right button");
-      var num1 = document.querySelectorAll(".zj .left span em")[0];
-      var num2 = document.querySelectorAll(".zj .left span em")[1];
-      /* 给小计一个初始值 */
-      totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
-      zj.innerHTML = totle.innerHTML;
-      /* 减号点击事件 */
-      subtract.onclick = function () {
-        if (input.value > 1) {
-          input.value--;
-          totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
-          zj.innerHTML = totle.innerHTML;
-          num1.innerHTML = input.value;
-          num2.innerHTML = input.value;
-        } else {
-          alert("数量不能少于1");
-        }
-      }
-      /* 加号点击事件 */
-      add.onclick = function () {
-        input.value++;
-        totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
-        zj.innerHTML = totle.innerHTML;
-        num1.innerHTML = input.value;
-        num2.innerHTML = input.value;
-      }
       pay.onclick = function () {
         alert(`恭喜你付款成功，一共消费${zj.innerHTML}`);
       }
