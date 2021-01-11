@@ -11,7 +11,7 @@
  Target Server Version : 100128
  File Encoding         : 65001
 
- Date: 08/01/2021 18:58:48
+ Date: 11/01/2021 17:50:22
 */
 
 SET NAMES utf8mb4;
@@ -119,19 +119,62 @@ INSERT INTO `xm_product` VALUES (48, '小米巨能写中性笔10支装', '一支
 DROP TABLE IF EXISTS `xm_product_swiper`;
 CREATE TABLE `xm_product_swiper`  (
   `cid` int NOT NULL AUTO_INCREMENT,
-  `img` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `title` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `img` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `pid` int NULL DEFAULT NULL,
   PRIMARY KEY (`cid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of xm_product_swiper
 -- ----------------------------
-INSERT INTO `xm_product_swiper` VALUES (1, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5a01b2beca861b9970e7d57c358b5b95.jpg', '轮播广告商品1');
-INSERT INTO `xm_product_swiper` VALUES (2, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/54f5478a4190962387b5360dc84cd2dc.jpg', '轮播广告商品2');
-INSERT INTO `xm_product_swiper` VALUES (3, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9ebff5f5c1f52f2dbdd611897adbefd4.jpg', '轮播广告商品3');
-INSERT INTO `xm_product_swiper` VALUES (4, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0ef4160c861b998239bce9adb82341e7.jpg', '轮播广告商品4');
-INSERT INTO `xm_product_swiper` VALUES (5, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6c8548518decd20f4eb61608730ada54.jpg', '轮播广告商品5');
+INSERT INTO `xm_product_swiper` VALUES (1, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5a260090e0e08770b0bd865845a4b4ab.jpg', 1);
+INSERT INTO `xm_product_swiper` VALUES (2, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4e75e528fb468aee107f551179aa0799.jpg', 2);
+INSERT INTO `xm_product_swiper` VALUES (3, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7cf7a05df86a858a1f391a0378d8c27d.jpg', 3);
+INSERT INTO `xm_product_swiper` VALUES (4, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d880ff45a9a3b70527770e01521fc939.jpg', 4);
+INSERT INTO `xm_product_swiper` VALUES (5, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5a260090e0e08770b0bd865845a4b4ab.jpg', 5);
+INSERT INTO `xm_product_swiper` VALUES (6, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4e75e528fb468aee107f551179aa0799.jpg', 6);
+INSERT INTO `xm_product_swiper` VALUES (7, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7cf7a05df86a858a1f391a0378d8c27d.jpg', 7);
+INSERT INTO `xm_product_swiper` VALUES (8, 'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d880ff45a9a3b70527770e01521fc939.jpg', 8);
+INSERT INTO `xm_product_swiper` VALUES (9, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ef4c68fed730ec26bf2fa0ff620975c5.jpg', 9);
+INSERT INTO `xm_product_swiper` VALUES (10, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ec20453216dcd42f982cffe5fdbc3115.jpg', 10);
+INSERT INTO `xm_product_swiper` VALUES (11, 'https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2b911be4c2f156bb6e4cf367c6080045.jpg', 11);
+INSERT INTO `xm_product_swiper` VALUES (12, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/74e573c4c0d89048392d14831cc507d5.jpg', 12);
+INSERT INTO `xm_product_swiper` VALUES (13, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ef4c68fed730ec26bf2fa0ff620975c5.jpg', 13);
+INSERT INTO `xm_product_swiper` VALUES (14, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ec20453216dcd42f982cffe5fdbc3115.jpg', 14);
+INSERT INTO `xm_product_swiper` VALUES (15, 'https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2b911be4c2f156bb6e4cf367c6080045.jpg', 15);
+INSERT INTO `xm_product_swiper` VALUES (16, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/74e573c4c0d89048392d14831cc507d5.jpg', 16);
+INSERT INTO `xm_product_swiper` VALUES (17, 'https://i8.mifile.cn/v1/a1/877d3ce8-68ab-7506-2a78-55a8c0fba946!200x200.png', 17);
+INSERT INTO `xm_product_swiper` VALUES (18, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/011dd8493ad62f3793dbb63d9fbd3bc0.jpg', 18);
+INSERT INTO `xm_product_swiper` VALUES (19, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/550177d2e54387521bce9e78cb2949dd.jpg', 19);
+INSERT INTO `xm_product_swiper` VALUES (20, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/49f30069c778b494257320d9da5a1a60.jpg', 20);
+INSERT INTO `xm_product_swiper` VALUES (21, 'https://i8.mifile.cn/v1/a1/877d3ce8-68ab-7506-2a78-55a8c0fba946!200x200.png', 21);
+INSERT INTO `xm_product_swiper` VALUES (22, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/011dd8493ad62f3793dbb63d9fbd3bc0.jpg', 22);
+INSERT INTO `xm_product_swiper` VALUES (23, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/550177d2e54387521bce9e78cb2949dd.jpg', 23);
+INSERT INTO `xm_product_swiper` VALUES (24, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/49f30069c778b494257320d9da5a1a60.jpg', 24);
+INSERT INTO `xm_product_swiper` VALUES (25, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5fc35cf0af915a9e60f5d4ea220521ab.jpg', 25);
+INSERT INTO `xm_product_swiper` VALUES (26, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/eaf70e0e9905de6452f07b1f48fcc386.jpg', 26);
+INSERT INTO `xm_product_swiper` VALUES (27, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7d9e8308f5f55bfa69c5c7fadc7cb4aa.jpg', 27);
+INSERT INTO `xm_product_swiper` VALUES (28, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c6306bf6d8aede9f6f48d8e4d9256db2.jpg', 28);
+INSERT INTO `xm_product_swiper` VALUES (29, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5fc35cf0af915a9e60f5d4ea220521ab.jpg', 29);
+INSERT INTO `xm_product_swiper` VALUES (30, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/eaf70e0e9905de6452f07b1f48fcc386.jpg', 30);
+INSERT INTO `xm_product_swiper` VALUES (31, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7d9e8308f5f55bfa69c5c7fadc7cb4aa.jpg', 31);
+INSERT INTO `xm_product_swiper` VALUES (32, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c6306bf6d8aede9f6f48d8e4d9256db2.jpg', 32);
+INSERT INTO `xm_product_swiper` VALUES (33, 'https://i8.mifile.cn/v1/a1/b0ded71f-b235-8f99-ba1c-20f80c3a4231!200x200.jpg', 33);
+INSERT INTO `xm_product_swiper` VALUES (34, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e4b3bff030170ad1a07dfb50311352c9.jpg', 34);
+INSERT INTO `xm_product_swiper` VALUES (35, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/573e9cb39b0d8c7f2cd063621142fe44.jpg', 35);
+INSERT INTO `xm_product_swiper` VALUES (36, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f8fde8a877fd4b12ad88119d9b6bc061.jpg', 36);
+INSERT INTO `xm_product_swiper` VALUES (37, 'https://i8.mifile.cn/v1/a1/b0ded71f-b235-8f99-ba1c-20f80c3a4231!200x200.jpg', 37);
+INSERT INTO `xm_product_swiper` VALUES (38, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e4b3bff030170ad1a07dfb50311352c9.jpg', 38);
+INSERT INTO `xm_product_swiper` VALUES (39, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/573e9cb39b0d8c7f2cd063621142fe44.jpg', 39);
+INSERT INTO `xm_product_swiper` VALUES (40, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f8fde8a877fd4b12ad88119d9b6bc061.jpg', 40);
+INSERT INTO `xm_product_swiper` VALUES (41, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/03d94ee6059481a6adcb6c4c5c572fb4.jpg', 41);
+INSERT INTO `xm_product_swiper` VALUES (42, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cccac948e1b8ffb47f1fecde67692e60.jpg', 42);
+INSERT INTO `xm_product_swiper` VALUES (43, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f9017bebb14740ea46673aaa81a616cb.jpg', 43);
+INSERT INTO `xm_product_swiper` VALUES (44, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/57433a4b991b2a2ddc889f2d8d434655.jpg', 44);
+INSERT INTO `xm_product_swiper` VALUES (45, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/03d94ee6059481a6adcb6c4c5c572fb4.jpg', 45);
+INSERT INTO `xm_product_swiper` VALUES (46, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cccac948e1b8ffb47f1fecde67692e60.jpg', 46);
+INSERT INTO `xm_product_swiper` VALUES (47, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f9017bebb14740ea46673aaa81a616cb.jpg', 47);
+INSERT INTO `xm_product_swiper` VALUES (48, 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/57433a4b991b2a2ddc889f2d8d434655.jpg', 48);
 
 -- ----------------------------
 -- Table structure for xm_swiper
@@ -166,7 +209,7 @@ CREATE TABLE `xm_user`  (
   `phone` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sex` int NULL DEFAULT NULL,
   PRIMARY KEY (`uid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of xm_user
@@ -174,6 +217,5 @@ CREATE TABLE `xm_user`  (
 INSERT INTO `xm_user` VALUES (1, 'dingding', '123456', 'ding@qq.com', '13501234567', 1);
 INSERT INTO `xm_user` VALUES (2, 'dangdang', '123456', 'dang@qq.com', '13501234568', 1);
 INSERT INTO `xm_user` VALUES (3, 'yaya', '123456', 'ya@qq.com', '13501234560', 0);
-INSERT INTO `xm_user` VALUES (4, '111111', '1111111', '1448670742@qq.com', '13501234567', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;

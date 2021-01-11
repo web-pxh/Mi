@@ -161,7 +161,7 @@ a {
 .xiaomi {
   /* display: none; */
   width: 100%;
-  height: 0;
+  height: 229px;
   background-color: #fff;
   position: absolute;
   top: 141px;
@@ -172,7 +172,7 @@ a {
 }
 
 .xiaomi .container {
-  display: none;
+  /* display: none; */
   overflow: hidden;
 }
 
