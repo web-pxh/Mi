@@ -635,8 +635,7 @@ a {
   width: 60px;
   position: absolute;
   top: 850px;
-  left: 30px;
-  /* transition: top .3s linear; */
+  left: 90px;
 }
 
 .left_nav ul {

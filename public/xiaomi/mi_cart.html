@@ -27,7 +27,7 @@
           <a href="./mi_login.html">登录</a>
         </div>
         <div class="order">
-          <a href="#">我的订单</a>
+          <a href="javascript:alert('页面尚未制作')">我的订单</a>
         </div>
       </div>
     </div>
@@ -50,18 +50,20 @@
       </div>
       <div class="cart_warp" style="display: block;">
         <table>
-          <tr>
-            <th>
-              <input type="checkbox" id="all_check" checked>
-              <label for="all_check">全选</span>
-            </th>
-            <th></th>
-            <th style="text-align: left;">商品名称</th>
-            <th>单价</th>
-            <th>数量</th>
-            <th>小计</th>
-            <th>操作</th>
-          </tr>
+          <thead>
+            <tr>
+              <th>
+                <input type="checkbox" id="all_check" checked>
+                <label for="all_check">全选</span>
+              </th>
+              <th></th>
+              <th style="text-align: left;">商品名称</th>
+              <th>单价</th>
+              <th>数量</th>
+              <th>小计</th>
+              <th>操作</th>
+            </tr>
+          </thead>
           <tr>
             <td><input type="checkbox" checked class="check">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -88,7 +90,7 @@
               <span class="totle">6999元</span>
             </td>
             <td class="oper">
-              <a href="javascript:" id="close">
+              <a href="javascript:" class="close">
                 <i>×</i>
               </a>
             </td>
@@ -108,7 +110,7 @@
               </a>
             </td>
             <td>
-              <span class="price">6999元</span>
+              <span class="price">5999元</span>
             </td>
             <td class="btn">
               <button class="subtract">-</button>
@@ -116,10 +118,10 @@
               <button class="add">+</button>
             </td>
             <td>
-              <span class="totle">6999元</span>
+              <span class="totle">5999元</span>
             </td>
             <td class="oper">
-              <a href="javascript:" id="close">
+              <a href="javascript:" class="close">
                 <i>×</i>
               </a>
             </td>
@@ -259,7 +261,9 @@
     </div>
   </div>
   <!-- 底部 -->
-  <footer id="footer"> </footer>
+  <footer id="footer"></footer>
+
+
   <script src="./js/jquery.min.js"></script>
   <script src="./js/components.js"></script>
   <script src="./js/utils.js"></script>
@@ -271,8 +275,6 @@
       var btns = document.querySelectorAll(".btn button");
       /* 获取小计*/
       var totles = document.querySelectorAll(".cart_warp .totle");
-      /* 获取多选框 */
-      var checks = document.querySelectorAll(".cart_warp .check");
       /* 总价格 */
       var zj = document.querySelector(".zj .right span");
       var pay = document.querySelector(".zj .right button");
@@ -288,19 +290,12 @@
       zj.innerHTML = sum + '元';
       /* 存储总数量 */
       var sum1 = 0;
-      inputs.forEach(i => {
-        sum1 += parseInt(i.value);
-      });
+      for (var i = 0; i < inputs.length; i++) {
+        sum1 += parseInt(inputs[i].value);
+      }
       num1.innerHTML = sum1;
       num2.innerHTML = sum1;
-      /* 存储选中的总数量 */
-      // var sum2 = 0;
-      // checks.forEach((i,key) => {
-      //   if (i.checked == true) {
-      //     sum2 += parseInt(inputs[key].value);
-      //   }
-      // });
-      /* 点击事件 */
+      /* 加减点击事件 */
       for (var item of btns) {
         item.onclick = function () {
           var input = this.parentElement.children[1];
@@ -315,15 +310,23 @@
           } else {
             alert("数量不能少于1");
           }
+          /* 小计 */
+          var totles = document.querySelectorAll(".cart_warp .totle");
+          /* 获取所有input标签 */
+          var inputs = document.querySelectorAll(".btn input");
+          /* 总数量 */
+          var num1 = document.querySelectorAll(".zj .left span em")[0];
+          /* 选中的总数量 */
+          var num2 = document.querySelectorAll(".zj .left span em")[1];
           var sum2 = 0;
-          totles.forEach(i => {
+          for (var i of totles) {
             sum2 += parseFloat(i.innerHTML);
-          });
+          }
           zj.innerHTML = sum2 + "元";
           var sum3 = 0;
-          inputs.forEach(i => {
-            sum3 += parseInt(i.value);
-          });
+          for (var i of inputs) {
+            sum3 += parseFloat(i.value);
+          }
           num1.innerHTML = sum3;
           num2.innerHTML = sum3;
         }
@@ -370,36 +373,90 @@
       pay.onclick = function () {
         alert(`恭喜你付款成功，一共消费${zj.innerHTML}`);
       }
+
+      function add() {
+        alert("该功能还未实现,就看看吧!")
+      }
+      /* 获取缓存中的用户名 */
+      var uname = window.sessionStorage.getItem("name");
       var login = document.querySelector(".topbar .user a");
       if (uname) {
         login.innerHTML = uname;
         login.href = "#";
       }
-    }
-
-
-    function add() {
-      alert("该功能还未实现,就看看吧!")
-    }
-
-    var cart1 = document.querySelector(".cart");
-    var cart2 = document.querySelector(".cart_warp");
-    var cart3 = document.getElementById("noLogin");
-    var close = document.getElementById("close");
-    /* 获取缓存中的用户名 */
-    var uname = window.sessionStorage.getItem("name");
-    close.onclick = function () {
-      var result = confirm("确定要删除该商品?");
-      if (result) {
-        if (uname != null) {
-          cart2.style.display = "none";
-          cart1.style.display = "block";
-        } else {
-          cart2.style.display = "none";
-          cart3.style.display = "block";
+      /* 获取关闭按钮X */
+      var closes = document.querySelectorAll(".close");
+      for (var item of closes) {
+        item.onclick = function () {
+          var cart1 = document.querySelector(".cart");
+          var cart2 = document.querySelector(".cart_warp");
+          var cart3 = document.getElementById("noLogin");
+          var result = confirm("确定要删除该商品?");
+          if (result) {
+            if (uname != null) {
+              this.parentElement.parentElement.remove();
+              /* 小计 */
+              var totles = document.querySelectorAll(".cart_warp .totle");
+              /* 获取所有input标签 */
+              var inputs = document.querySelectorAll(".btn input");
+              /* 总数量 */
+              var num1 = document.querySelectorAll(".zj .left span em")[0];
+              /* 选中的总数量 */
+              var num2 = document.querySelectorAll(".zj .left span em")[1];
+              var sum2 = 0;
+              for (var i of totles) {
+                sum2 += parseFloat(i.innerHTML);
+              }
+              zj.innerHTML = sum2 + "元";
+              var sum3 = 0;
+              for (var i of inputs) {
+                sum3 += parseFloat(i.value);
+              }
+              num1.innerHTML = sum3;
+              num2.innerHTML = sum3;
+              var tr = document.querySelectorAll("table tbody tr");
+              if (tr.length == 0) {
+                cart2.style.display = "none";
+                cart1.style.display = "block"
+              }
+            } else {
+              this.parentElement.parentElement.remove();
+              /* 小计 */
+              var totles = document.querySelectorAll(".cart_warp .totle");
+              /* 获取所有input标签 */
+              var inputs = document.querySelectorAll(".btn input");
+              /* 总数量 */
+              var num1 = document.querySelectorAll(".zj .left span em")[0];
+              /* 选中的总数量 */
+              var num2 = document.querySelectorAll(".zj .left span em")[1];
+              var sum2 = 0;
+              for (var i of totles) {
+                sum2 += parseFloat(i.innerHTML);
+              }
+              zj.innerHTML = sum2 + "元";
+              var sum3 = 0;
+              for (var i of inputs) {
+                sum3 += parseFloat(i.value);
+              }
+              num1.innerHTML = sum3;
+              num2.innerHTML = sum3;
+              var tr = document.querySelectorAll("table tbody tr");
+              if (tr.length == 0) {
+                cart2.style.display = "none";
+                cart3.style.display = "block"
+              }
+            }
+            // if (uname != null) {
+            //   cart2.style.display = "none";
+            //   cart1.style.display = "block";
+            // } else {
+            //   cart2.style.display = "none";
+            //   cart3.style.display = "block";
+            // }
+          } else {
+            alert("删除失败");
+          }
         }
-      } else {
-        alert("删除失败");
       }
     }
   </script>

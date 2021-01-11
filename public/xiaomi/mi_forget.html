@@ -35,7 +35,8 @@
       font-weight: normal;
     }
 
-    .input .uname,.input .upwd {
+    .input .uname,
+    .input .upwd {
       display: block;
       width: 310px;
       height: 40px;
@@ -169,16 +170,20 @@
           var obj = JSON.parse(result);
           uname.style.display = "none";
           upwd.style.display = "block";
-          // var formdata = `upwd=${uname.value}&uid=${obj.uid}`
-          // ajax("post", `/Mi/changeupwd`, isUpdate, formdata);
+          btn.onclick = function () {
+            var formdata = `upwd=${upwd.value}&uid=${obj.uid}`
+            ajax("post", `/Mi/changeupwd`, isUpdate, formdata);
 
-          // function isUpdate() {
-          //   if (result == 1) {
-          //     alert("修改成功");
-          //   } else {
-          //     alert("修改失败");
-          //   }
-          // }
+            function isUpdate(result1) {
+              if (result1 == 1) {
+                alert("修改成功,请前往登陆");
+                location.href = `mi_login.html`;
+              } else {
+                alert("修改失败");
+              }
+            }
+          }
+
         }
       }
     }
