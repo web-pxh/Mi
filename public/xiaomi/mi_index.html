@@ -501,6 +501,24 @@
   <script src="./js/swiper.js"></script>
   <script>
     window.onload = function () {
+      /* 获取头部的li */
+      var navLi = document.querySelectorAll(".header-nav .nav .li");
+      /* 获取隐藏的内容 */
+      var h_content = document.querySelector(".xiaomi");
+      for (var item of navLi) {
+        item.onmouseover = function () {
+          h_content.style.display = "block";
+        }
+        item.onmouseout = function () {
+          h_content.style.display = "none";
+        }
+      }
+      h_content.onmouseover = function () {
+        h_content.style.display = "block";
+      }
+      h_content.onmouseout = function () {
+        h_content.style.display = "none";
+      }
       /* 用户名 */
       var uname = window.sessionStorage.getItem("name");
       if (uname) {
@@ -671,7 +689,7 @@
                   <h3>${actArr[i].title}</h3>
                   <p class="desc">${actArr[i].details}</p>
                   <p>
-                    <span>${(actArr[i].price*0.8).toFixed(2)}元</span>
+                    <span>${(actArr[i].price * 0.8).toFixed(2)}元</span>
                     <del style="color:#b0b0b0">${actArr[i].price.toFixed(2)}元</del>
                   </p>
                 </div>

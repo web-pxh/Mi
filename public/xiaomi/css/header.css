@@ -117,7 +117,10 @@ a {
   animation-duration: 1s;
   animation-iteration-count: infinite;
 }
-
+.header-nav .nav{
+  height:100px;
+  line-height: 100px;
+}
 .header-nav li>a {
   color: #333;
   padding: 10px 8px;
@@ -159,7 +162,7 @@ a {
 
 /* 导航隐藏的内容 */
 .xiaomi {
-  /* display: none; */
+  display: none;
   width: 100%;
   height: 229px;
   background-color: #fff;
@@ -172,7 +175,6 @@ a {
 }
 
 .xiaomi .container {
-  /* display: none; */
   overflow: hidden;
 }
 
