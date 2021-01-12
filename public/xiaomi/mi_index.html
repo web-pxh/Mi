@@ -582,24 +582,6 @@
   <script src="./js/swiper.js"></script>
   <script>
     window.onload = function () {
-      /* 获取头部的li */
-      // var navLi = document.querySelectorAll(".header-nav .nav .li");
-      // /* 获取隐藏的内容 */
-      // var h_content = document.querySelector(".xiaomi");
-      // for (var item of navLi) {
-      //   item.onmouseover = function () {
-      //     h_content.style.display = "block";
-      //   }
-      //   item.onmouseout = function () {
-      //     h_content.style.display = "none";
-      //   }
-      // }
-      // h_content.onmouseover = function () {
-      //   h_content.style.display = "block";
-      // }
-      // h_content.onmouseout = function () {
-      //   h_content.style.display = "none";
-      // }
       /* 分类 */
       var slideli = document.querySelectorAll(".slide ul li");
       var children = document.querySelector(".children");
@@ -691,7 +673,7 @@
 
       }
       //2.滚动滑轮，到达临界点的时候，按钮跟着高亮显示
-      window.onscroll = function () {
+      $(window).scroll(function () {
         //获取浏览器滚动高度  -- 解决浏览器兼容性问题
         var scrollTop =
           document.body.scrollTop || document.documentElement.scrollTop;
@@ -719,7 +701,9 @@
         } else {
           toTop.style.visibility = "hidden";
         }
-      }
+      })
+
+      window.onscroll = function () {}
       /* tab切换 */
       var tab3 = document.querySelectorAll(".main-box3 .tab a span");
       var tab4 = document.querySelectorAll(".main-box4 .tab a span");
@@ -733,13 +717,6 @@
       tabChange(tab7);
 
 
-      // var boxs = document.querySelectorAll(".main .container>div:not(:first-child):not(:last-child)");
-      // var phonelis = document.querySelectorAll(".main-box2 .item li");
-      // var houeslis = document.querySelectorAll(".main-box3 .item li");
-      // var intelligencelis = document.querySelectorAll(".main-box4 .item li");
-      // var collocationlis = document.querySelectorAll(".main-box5 .item li");
-      // var partslis = document.querySelectorAll(".main-box6 .item li");
-      // var peripherylis = document.querySelectorAll(".main-box7 .item li");
       /* 闪购的li */
       var slide_listLi = document.querySelectorAll("#slide_list ul li");
       /* 请求首页商品数据 */
@@ -751,25 +728,6 @@
       function isListShow(result) {
         if (result.length > 0) {
           var info = JSON.parse(result);
-          /* 手机 */
-          // var phone = info[0];
-          // /* 家电 */
-          // var houes = info[1];
-          // /* 智能 */
-          // var intelligence = info[2];
-          // /* 搭配 */
-          // var collocation = info[3];
-          // /* 配件 */
-          // var parts = info[4];
-          // /*  周边*/
-          // var periphery = info[5];
-          // getData(phone, phonelis);
-          // getData(houes, houeslis);
-          // getData(intelligence, intelligencelis);
-          // getData(collocation, collocationlis);
-          // getData(parts, partslis);
-          // getData(periphery, peripherylis);
-          /* 使用utils中封装的方法 */
           /* 获取盒子 */
           var lazyload = function () {
             /* 获取main下div */
@@ -789,8 +747,8 @@
               }
             }
           }
-          // //当触发滚轮事件时,调用懒加载方法
-          window.onscroll = throttle(lazyload, 200);
+          //当触发滚轮事件时,调用懒加载方法
+          $(window).scroll(throttle(lazyload, 200));
         }
       };
 
