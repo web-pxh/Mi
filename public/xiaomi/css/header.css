@@ -193,7 +193,10 @@ a {
 .xiaomi .phone_list li:not(:last-child) {
   border-right: 1px solid #ddd;
 }
-
+.xiaomi .phone_list li img{
+  width: 160px;
+  height: 110px;
+}
 .xiaomi .phone_list li .phone_name {
   display: block;
   color: #212121;

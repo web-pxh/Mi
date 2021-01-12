@@ -88,3 +88,13 @@ function tabChange(tab) {
     }
   }
 }
+//防止多次触发鼠标滚轮事件，使用函数防抖
+function throttle(method, delay) {
+  var timer = null;
+  return function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      method();
+    }, delay);
+  };
+}

@@ -280,18 +280,12 @@
   <footer id="footer"> </footer>
   <!-- 右侧的导航栏 -->
   <nav id="bar"></nav>
-  <input type="hidden" value="" id="name_hid">
 
   <script src="./js/jquery.min.js"></script>
   <script src="./js/components.js"></script>
   <script src="./js/request.js"></script>
   <script src="./js/swiper.js"></script>
   <script>
-    /* 用户名 */
-    var uname = window.sessionStorage.getItem("name");
-    if (uname) {
-      $("#name_hid").val(uname);
-    }
     /* 获取详情 */
     var search = window.location.search;
     ajax("get", `/Mi/details`, isSuccess, search.slice(5, 7));

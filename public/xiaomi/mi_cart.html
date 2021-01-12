@@ -26,8 +26,8 @@
         <div class="user">
           <a href="./mi_login.html">登录</a>
         </div>
-        <div class="order">
-          <a href="javascript:alert('页面尚未制作')">我的订单</a>
+        <div class="reg">
+          <a href="./mi_reg.html">注册</a>
         </div>
       </div>
     </div>
@@ -269,6 +269,24 @@
   <script src="./js/utils.js"></script>
   <script>
     window.onload = function () {
+      /* 获取缓存中的用户名 */
+      var uname = window.sessionStorage.getItem("name");
+      var login = document.querySelector(".topbar .user a");
+      var reg = document.querySelector(".topbar .reg a");
+      if (uname) {
+        login.innerHTML = uname;
+        login.href = "#";
+        reg.innerHTML = '退出登录';
+        reg.href = "#";
+      }
+      reg.onclick = function () {
+        var result = confirm("确定要退出登录?");
+        if (result) {
+          sessionStorage.clear();
+          window.location.reload();
+        }
+      }
+      /* 购物车内容 */
       /* 获取所有input标签 */
       var inputs = document.querySelectorAll(".btn input");
       /* 获取所有按钮*/
@@ -282,6 +300,10 @@
       var num1 = document.querySelectorAll(".zj .left span em")[0];
       /* 选中的总数量 */
       var num2 = document.querySelectorAll(".zj .left span em")[1];
+      /* 全选按钮 */
+      var all_check = document.getElementById("all_check");
+      /* 每个商品的按钮 */
+      var checks = document.querySelectorAll("tbody>tr>td>.check");
       /* 存储总价格 */
       var sum = 0;
       for (var i = 0; i < totles.length; i++) {
@@ -331,58 +353,29 @@
           num2.innerHTML = sum3;
         }
       }
-
-      //   /* 获取数量下的input标签 */
-      //   var input = document.querySelector(".btn input");
-      //   /* 获取加号按钮*/
-      //   var add = document.querySelector(".btn .add");
-      //   /* 获取减号按钮*/
-      //   var subtract = document.querySelector(".btn .subtract");
-      //   /* 获取小计*/
-      //   var totle = document.querySelector(".cart_warp .totle");
-      //   /* 获取价格*/
-      //   var price = document.querySelector(".cart_warp .price");
-      //   /* 总价格 */
-      //   var zj = document.querySelector(".zj .right span");
-      //   var pay = document.querySelector(".zj .right button");
-      //   var num1 = document.querySelectorAll(".zj .left span em")[0];
-      //   var num2 = document.querySelectorAll(".zj .left span em")[1];
-      //   /* 给小计一个初始值 */
-      //   totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
-      //   zj.innerHTML = totle.innerHTML;
-      //   /* 减号点击事件 */
-      //   subtract.onclick = function () {
-      //     if (input.value > 1) {
-      //       input.value--;
-      //       totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
-      //       zj.innerHTML = totle.innerHTML;
-      //       num1.innerHTML = input.value;
-      //       num2.innerHTML = input.value;
-      //     } else {
-      //       alert("数量不能少于1");
-      //     }
-      //   }
-      //   /* 加号点击事件 */
-      //   add.onclick = function () {
-      //     input.value++;
-      //     totle.innerHTML = parseInt(input.value) * parseInt(price.innerHTML) + '元';
-      //     zj.innerHTML = totle.innerHTML;
-      //     num1.innerHTML = input.value;
-      //     num2.innerHTML = input.value;
-      // }
+      /* 全选操作 */
+      all_check.onclick = function () {
+        var checks = document.querySelectorAll("tbody>tr>td>.check");
+        for (var item of checks) {
+          item.checked = all_check.checked;
+        }
+      }
+      for (var item of checks) {
+        item.onclick = function () {
+          var unchecked = document.querySelector("tbody>tr>td>.check:not(:checked)");
+          if (unchecked != null) { //说明找到了一个未选中的,则
+            all_check.checked = false
+          } else { //否则如果没找到未选中的input，说明全选了，则
+            all_check.checked = true
+          }
+        }
+      }
       pay.onclick = function () {
         alert(`恭喜你付款成功，一共消费${zj.innerHTML}`);
       }
 
       function add() {
         alert("该功能还未实现,就看看吧!")
-      }
-      /* 获取缓存中的用户名 */
-      var uname = window.sessionStorage.getItem("name");
-      var login = document.querySelector(".topbar .user a");
-      if (uname) {
-        login.innerHTML = uname;
-        login.href = "#";
       }
       /* 获取关闭按钮X */
       var closes = document.querySelectorAll(".close");
@@ -446,13 +439,6 @@
                 cart3.style.display = "block"
               }
             }
-            // if (uname != null) {
-            //   cart2.style.display = "none";
-            //   cart1.style.display = "block";
-            // } else {
-            //   cart2.style.display = "none";
-            //   cart3.style.display = "block";
-            // }
           } else {
             alert("删除失败");
           }

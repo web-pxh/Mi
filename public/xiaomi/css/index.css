@@ -69,13 +69,49 @@ a {
 
 /* 隐藏的内容 */
 .swiper-slide .children {
-  display: none;
-  width: 81.2%;
+  display: flex;
+  justify-content: start;
+  visibility:hidden;
   height: 480px;
-  background-color: red;
+  background-color: #fff;
   position: absolute;
   top: 0;
-  right: 0;
+  left: 240px;
+  z-index: 20;
+  padding: 30px 20px;
+}
+
+.swiper-slide .children ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 14rem;
+  height: 100%;
+}
+
+.children ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.children ul li img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.children ul li span {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all .2 linear;
+}
+
+.children ul li span:hover {
+  color: #ff6700;
 }
 
 .swiper-slide .swiper {

@@ -82,7 +82,90 @@
         </div>
         <!-- 隐藏的内容 -->
         <div class="children">
-
+          <div>
+            <ul>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a51c1afa4db8e47e62fad1f6fa4a8970.png">
+                <span>小米11</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a51c1afa4db8e47e62fad1f6fa4a8970.png" alt="">
+                <span>小米11</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a51c1afa4db8e47e62fad1f6fa4a8970.png" alt="">
+                <span>小米11</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a51c1afa4db8e47e62fad1f6fa4a8970.png">
+                <span>小米11</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a51c1afa4db8e47e62fad1f6fa4a8970.png" alt="">
+                <span>小米11</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a51c1afa4db8e47e62fad1f6fa4a8970.png">
+                <span>小米11</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5ca871528d3420622f21f25be7aba58c.png?">
+                <span>小米10 至尊纪念版</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5ca871528d3420622f21f25be7aba58c.png?">
+                <span>小米10 至尊纪念版</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5ca871528d3420622f21f25be7aba58c.png?">
+                <span>小米10 至尊纪念版</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5ca871528d3420622f21f25be7aba58c.png?">
+                <span>小米10 至尊纪念版</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5ca871528d3420622f21f25be7aba58c.png?">
+                <span>小米10 至尊纪念版</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5ca871528d3420622f21f25be7aba58c.png?">
+                <span>小米10 至尊纪念版</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg">
+                <span>Redmi K30 Pro 变焦版</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg">
+                <span>Redmi K30 Pro 变焦版</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg">
+                <span>Redmi K30 Pro 变焦版</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg">
+                <span>Redmi K30 Pro 变焦版</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg">
+                <span>Redmi K30 Pro 变焦版</span>
+              </li>
+              <li>
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/461bf013d08a7a91423cafcbc5ff9339.jpg">
+                <span>Redmi K30 Pro 变焦版</span>
+              </li>
+            </ul>
+          </div>
         </div>
         <!-- 轮播图 -->
         <div class="swiper">
@@ -489,8 +572,6 @@
   <nav id="bar"></nav>
   <!-- 底部 -->
   <footer id="footer"></footer>
-  <!-- 隐藏域,用于获取用户名 -->
-  <input type="hidden" value="" id="name_hid">
 
 
   <!-- 引入工具类 -->
@@ -502,27 +583,39 @@
   <script>
     window.onload = function () {
       /* 获取头部的li */
-      var navLi = document.querySelectorAll(".header-nav .nav .li");
-      /* 获取隐藏的内容 */
-      var h_content = document.querySelector(".xiaomi");
-      for (var item of navLi) {
+      // var navLi = document.querySelectorAll(".header-nav .nav .li");
+      // /* 获取隐藏的内容 */
+      // var h_content = document.querySelector(".xiaomi");
+      // for (var item of navLi) {
+      //   item.onmouseover = function () {
+      //     h_content.style.display = "block";
+      //   }
+      //   item.onmouseout = function () {
+      //     h_content.style.display = "none";
+      //   }
+      // }
+      // h_content.onmouseover = function () {
+      //   h_content.style.display = "block";
+      // }
+      // h_content.onmouseout = function () {
+      //   h_content.style.display = "none";
+      // }
+      /* 分类 */
+      var slideli = document.querySelectorAll(".slide ul li");
+      var children = document.querySelector(".children");
+      for (var item of slideli) {
         item.onmouseover = function () {
-          h_content.style.display = "block";
+          children.style.visibility = "visible";
         }
         item.onmouseout = function () {
-          h_content.style.display = "none";
+          children.style.visibility = "hidden";
         }
       }
-      h_content.onmouseover = function () {
-        h_content.style.display = "block";
+      children.onmouseover = function () {
+        children.style.visibility = "visible";
       }
-      h_content.onmouseout = function () {
-        h_content.style.display = "none";
-      }
-      /* 用户名 */
-      var uname = window.sessionStorage.getItem("name");
-      if (uname) {
-        $("#name_hid").val(uname);
+      children.onmouseout = function () {
+        children.style.visibility = "hidden";
       }
       /* 倒计时 */
       hour.innerHTML = countDown().hour + ':00 场';
@@ -597,10 +690,11 @@
         }
 
       }
-
       //2.滚动滑轮，到达临界点的时候，按钮跟着高亮显示
       window.onscroll = function () {
-        var scrollTop = window.scrollY; //滚动距离
+        //获取浏览器滚动高度  -- 解决浏览器兼容性问题
+        var scrollTop =
+          document.body.scrollTop || document.documentElement.scrollTop;
         for (var i = 0; i < lous.length; i++) {
           if (scrollTop >= lous[i].offsetTop) {
             //排他 设置高亮
@@ -638,16 +732,17 @@
       tabChange(tab6);
       tabChange(tab7);
 
-      /* 请求首页商品数据 */
-      /* 获取main下li */
-      var phonelis = document.querySelectorAll(".main-box2 .item li");
-      var houeslis = document.querySelectorAll(".main-box3 .item li");
-      var intelligencelis = document.querySelectorAll(".main-box4 .item li");
-      var collocationlis = document.querySelectorAll(".main-box5 .item li");
-      var partslis = document.querySelectorAll(".main-box6 .item li");
-      var peripherylis = document.querySelectorAll(".main-box7 .item li");
-      var slide_listLi = document.querySelectorAll("#slide_list ul li");
 
+      // var boxs = document.querySelectorAll(".main .container>div:not(:first-child):not(:last-child)");
+      // var phonelis = document.querySelectorAll(".main-box2 .item li");
+      // var houeslis = document.querySelectorAll(".main-box3 .item li");
+      // var intelligencelis = document.querySelectorAll(".main-box4 .item li");
+      // var collocationlis = document.querySelectorAll(".main-box5 .item li");
+      // var partslis = document.querySelectorAll(".main-box6 .item li");
+      // var peripherylis = document.querySelectorAll(".main-box7 .item li");
+      /* 闪购的li */
+      var slide_listLi = document.querySelectorAll("#slide_list ul li");
+      /* 请求首页商品数据 */
       /* 发送请求 */
       ajax("get", `/Mi/index/list`, isListShow);
       ajax("get", `/Mi/index/active`, isActive);
@@ -657,24 +752,45 @@
         if (result.length > 0) {
           var info = JSON.parse(result);
           /* 手机 */
-          var phone = info[0];
-          /* 家电 */
-          var houes = info[1];
-          /* 智能 */
-          var intelligence = info[2];
-          /* 搭配 */
-          var collocation = info[3];
-          /* 配件 */
-          var parts = info[4];
-          /*  周边*/
-          var periphery = info[5];
+          // var phone = info[0];
+          // /* 家电 */
+          // var houes = info[1];
+          // /* 智能 */
+          // var intelligence = info[2];
+          // /* 搭配 */
+          // var collocation = info[3];
+          // /* 配件 */
+          // var parts = info[4];
+          // /*  周边*/
+          // var periphery = info[5];
+          // getData(phone, phonelis);
+          // getData(houes, houeslis);
+          // getData(intelligence, intelligencelis);
+          // getData(collocation, collocationlis);
+          // getData(parts, partslis);
+          // getData(periphery, peripherylis);
           /* 使用utils中封装的方法 */
-          getData(phone, phonelis);
-          getData(houes, houeslis);
-          getData(intelligence, intelligencelis);
-          getData(collocation, collocationlis);
-          getData(parts, partslis);
-          getData(periphery, peripherylis);
+          /* 获取盒子 */
+          var lazyload = function () {
+            /* 获取main下div */
+            var boxs = document.querySelectorAll(".main .container>div:not(:first-child):not(:last-child)");
+            //获取浏览器滚动高度  -- 解决浏览器兼容性问题
+            var scrollTop =
+              document.body.scrollTop || document.documentElement.scrollTop;
+            //获取浏览器可视高度
+            var winTop = window.innerHeight;
+            for (var i = 0; i < boxs.length; i++) {
+              /* 获取boxs下li*/
+              var L_lis = document.querySelectorAll(`.${boxs[i].className} .item li`);
+              //如果元素距离文档顶部的高度小于  浏览器的滚动高度加浏览器的可视高度，则需要加载
+              if (boxs[i].offsetTop < scrollTop + winTop) {
+                /* info[i]:每种类型的数据*/
+                getData(info[i], L_lis);
+              }
+            }
+          }
+          // //当触发滚轮事件时,调用懒加载方法
+          window.onscroll = throttle(lazyload, 200);
         }
       };
 
